@@ -7,10 +7,10 @@ function Pricing(props) {
   return (
     <div className="pricing">
       <div className="container mx-auto relative">
-        <div class="flex items-center justify-between">
+        <div className="flex items-center justify-between">
           <div className="max-w-[1100px]">
-            <h3 class="mb-4">Choose the plan that's right for you</h3>
-            <p class="">
+            <h3 className="mb-4">Choose the plan that's right for you</h3>
+            <p className="">
               Join StreamVibe and select from our flexible subscription options
               tailored to suit your viewing preferences. Get ready for non-stop
               entertainment!

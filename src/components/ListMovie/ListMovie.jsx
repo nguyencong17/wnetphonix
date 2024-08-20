@@ -12,14 +12,16 @@ import "swiper/css/navigation";
 import { Pagination, Navigation } from "swiper/modules";
 
 export const ListMovie = (props) => {
-  const { listmovie, tag, label } = props;
+  const { tag, label } = props;
+  let listmovie = props.listmovie;
+  listmovie = listmovie.slice(0, 6);
 
   const pagination = {
     el: `.${tag}-swiper-pagination-custom`,
     clickable: true,
     renderBullet: function (index, className) {
       return (
-        '<span className="!bg-[#999999] !rounded-[8px] !w-[16px] !h-[4px] inline-block' +
+        '<span class="!bg-[#999999] !rounded-[8px] !w-[16px] !h-[4px] inline-block' + ' ' +
         className +
         '"></span>'
       );
@@ -28,8 +30,8 @@ export const ListMovie = (props) => {
 
   return (
     <div className={tag}>
-      <div className="flex justify-between items-start">
-        <h2 className="mb-12 text-[36px]">{label}</h2>
+      <div className="flex justify-between items-center mb-12">
+        <h2 className="text-[36px]">{label}</h2>
         <div className="flex gap-4 border border-bordercolor p-4 bg-[#1a1a1a] rounded-[8px] items-center">
           <div className={`${tag}-arrow-left arrow cursor-pointer bg-[#050505] p-2 rounded-[8px] border border-bordercolor`}>
             <svg
@@ -74,6 +76,7 @@ export const ListMovie = (props) => {
           prevEl: `.${tag}-arrow-right`,
         }}
         className=""
+        loop={true}
       >
         {listmovie &&
           listmovie.map((movie) => (

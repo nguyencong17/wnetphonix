@@ -19,6 +19,18 @@ const movieAPIs = {
     const url = `movie/upcoming?api_key=${API_KEY}&language=en-US&page=${page}`
     return axiosClient.get(url);
   },
+  getGenres() {
+    const url = `genre/movie/list?api_key=${API_KEY}`
+    return axiosClient.get(url);
+  },
+  getMoviesByGenre(id) {
+    const url = `movie/popular?api_key=${API_KEY}&genre_ids=${id}`
+    return axiosClient.get(url);
+  },
+  getCastByMovie(id) {
+    const url = `movie/${id}/credits?api_key=${API_KEY}`
+    return axiosClient.get(url);
+  }
 }
 
 export default movieAPIs;

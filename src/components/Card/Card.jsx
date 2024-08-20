@@ -12,7 +12,7 @@ export const Card = (props) => {
 
   // Movie name
   const title = movie.title;
-  const moviename = title.length > 15 ? `${title.slice (0, 15)}...` : title;
+  const moviename = title.length > 15 ? `${title.slice(0, 15)}...` : title;
   return (
     <div>
       <Link href={`/movie/${movie.id}`}>
@@ -23,9 +23,12 @@ export const Card = (props) => {
               alt={movie.title}
               width={400}
               height={600}
-              className="rounded-lg absolute top-0 left-0 right-0 bottom-0 w-full h-full object-cover"
+              className="rounded-lg absolute top-0 left-0 right-0 bottom-0 w-full h-full object-cover z-1"
             />
-            <div className="p-4 bg-[rgba(0,0,0,.9)] absolute bottom-0 left-0 right-0 text-white rounded-b-lg flex items-center gap-6 justify-between">
+            <div>
+              <div className="absolute top-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent h-full w-full rounded-lg z-2"></div>
+            </div>
+            <div className="p-4 bg-[rgba(0,0,0,.9)] absolute bottom-0 left-0 right-0 text-white rounded-b-lg flex items-center gap-6 justify-between z-3">
               <div>
                 <h4 className="text-[16px] mb-2">{moviename}</h4>
                 <p className="font-medium">{year}</p>
@@ -45,7 +48,9 @@ export const Card = (props) => {
                     />
                   </svg>
                 </p>
-                <p className="font-bold">{Math.round(movie.vote_average * 10) / 10}</p>
+                <p className="font-bold">
+                  {Math.round(movie.vote_average * 10) / 10}
+                </p>
               </div>
             </div>
           </div>

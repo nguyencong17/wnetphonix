@@ -1,6 +1,7 @@
 "use client";
 import movieAPIs from "@/apis/movieAPIs";
 import Cta from "@/components/Cta/page";
+import { Genres } from "@/components/Genres/Genres";
 import { ListMovie } from "@/components/ListMovie/ListMovie";
 import Slide from "@/components/Slide/Slide";
 import { Badge } from "@/components/ui/badge";
@@ -11,6 +12,7 @@ import { useEffect, useState } from "react";
 // const fetcher = (url) => fetch(url).then((res) => res.json());
 
 function Movies() {
+  const [genres, setGenres] = useState([]);
   const [trending, setTrending] = useState([]);
   const [toprated, setToprated] = useState([]);
   const [upcoming, setUpcoming] = useState([]);
@@ -23,13 +25,15 @@ function Movies() {
         const trending = await movieAPIs.getAllMovies(1);
         const toprated = await movieAPIs.getMovieByLatest(2);
         const upcoming = await movieAPIs.getMovieByUpcoming(1);
+        const genres = await movieAPIs.getGenres();
+        
+        setGenres(genres.data.genres);
         setTrending(trending.data.results);
         setToprated(toprated.data.results);
         setUpcoming(upcoming.data.results);
       } catch (error) {
         console.log(error);
       }
-
     };
     fetchData();
   }, [])
@@ -71,6 +75,7 @@ function Movies() {
             Movies
           </Badge>
           <div className="border border-bordercolor p-[50px] rounded-lg -mt-[27px] flex flex-col gap-[50px]">
+            <Genres genres={genres} tag={'genres'} label={'Our Genres'}/>
             <ListMovie listmovie={trending} tag={'trending'} label={"Trending Now"} />
             <ListMovie listmovie={toprated} tag={'toprated'} label={"Top Rated"} />
             <ListMovie listmovie={upcoming} tag={'upcoming'} label={"Comming Soon"} />

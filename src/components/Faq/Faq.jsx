@@ -11,10 +11,10 @@ function Faq(props) {
   return (
     <div className="faq">
       <div className="container mx-auto pb-[128px]">
-        <div class="flex items-center justify-between">
+        <div className="flex items-center justify-between">
           <div className="max-w-[1100px]">
-            <h3 class="mb-4">Frequently Asked Questions</h3>
-            <p class="mb-8">
+            <h3 className="mb-4">Frequently Asked Questions</h3>
+            <p className="mb-8">
               Got questions? We've got answers! Check out our FAQ section to
               find answers to the most common questions about StreamVibe.
             </p>
