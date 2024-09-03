@@ -30,7 +30,7 @@ function SliderInfinity() {
           <Image
             src={HeroImage}
             alt="HERO IMAGE"
-            width={"auto"}
+            width={"100%"}
             height={"100%"}
             className="h-full object-cover object-right-top"
           />
@@ -39,7 +39,7 @@ function SliderInfinity() {
           <Image
             src={HeroImage}
             alt="HERO IMAGE"
-            width={"auto"}
+            width={"100%"}
             height={"100%"}
             className="h-full object-cover object-right-top"
           />
@@ -48,7 +48,7 @@ function SliderInfinity() {
           <Image
             src={HeroImage}
             alt="HERO IMAGE"
-            width={"auto"}
+            width={"100%"}
             height={"100%"}
             className="h-full object-cover object-right-top"
           />
@@ -57,7 +57,7 @@ function SliderInfinity() {
           <Image
             src={HeroImage}
             alt="HERO IMAGE"
-            width={"auto"}
+            width={"100%"}
             height={"100%"}
             className="h-full object-cover object-right-top"
           />

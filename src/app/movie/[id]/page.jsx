@@ -207,7 +207,7 @@ const DetailMovie = ({ params }) => {
                   className="flex flex-col items-center mr-8 bg-[#050505] rounded-lg border-2 border-bordercolor p-2"
                 >
                   <Image
-                    src={`https://image.tmdb.org/t/p/w500/${actor.profile_path}`}
+                    src={actor.profile_path ? `https://image.tmdb.org/t/p/w500/${actor.profile_path}` : "/actor/default.jpg"}
                     width={200}
                     height={200}
                     alt={actor.name}

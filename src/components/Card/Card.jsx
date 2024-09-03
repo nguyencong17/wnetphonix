@@ -5,22 +5,21 @@ import PropTypes from "prop-types";
 
 export const Card = (props) => {
   const { movie } = props;
-
   // date
   const dateString = movie.release_date;
   const year = moment(dateString).year();
 
   // Movie name
-  const title = movie.title;
-  const moviename = title.length > 15 ? `${title.slice(0, 15)}...` : title;
+  // const title = movie.title;
+  // const moviename = title.length > 15 ? `${title.slice(0, 15)}...` : title;
   return (
     <div>
       <Link href={`/movie/${movie.id}`}>
         <div key={movie.id} className="p-5 bg-[#1A1A1A] rounded-[8px] relative">
           <div className="w-full pb-[177%] relative">
             <Image
-              src={`https://image.tmdb.org/t/p/original/${movie.poster_path}`}
-              alt={movie.title}
+              src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}` || "/placeholder.png"}
+              alt={'abc'}
               width={400}
               height={600}
               className="rounded-lg absolute top-0 left-0 right-0 bottom-0 w-full h-full object-cover z-1"
@@ -30,7 +29,7 @@ export const Card = (props) => {
             </div>
             <div className="p-4 bg-[rgba(0,0,0,.9)] absolute bottom-0 left-0 right-0 text-white rounded-b-lg flex items-center gap-6 justify-between z-3">
               <div>
-                <h4 className="text-[16px] mb-2">{moviename}</h4>
+                <h4 className="text-[16px] mb-2">{movie.title}</h4>
                 <p className="font-medium">{year}</p>
               </div>
               <div className="flex gap-1">

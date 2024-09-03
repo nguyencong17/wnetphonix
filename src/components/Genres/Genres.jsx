@@ -43,14 +43,11 @@ export function Genres(props) {
   const pagination = {
     el: `.${tag}-swiper-pagination-custom`,
     clickable: true,
-    renderBullet: function (index, className) {
-      return (
-        '<span class="!bg-[#999999] !rounded-[8px] !w-[16px] !h-[4px] inline-block' +
-        " " +
-        className +
-        '"></span>'
-      );
-    },
+    // renderBullet: function (index, className) {
+    //   return (
+    //     '<span className="'+ className +'!bg-[#999999] !rounded-[8px] !w-[16px] !h-[4px] inline-block"></span>'
+    //   );
+    // },
   };
 
   return (

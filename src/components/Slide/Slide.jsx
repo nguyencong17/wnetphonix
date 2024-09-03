@@ -58,9 +58,9 @@ function Slide() {
 
   const pagination = {
     clickable: true,
-    renderBullet: function (index, className) {
-      return '<span class=" !bg-[#999999] !rounded-[8px] !w-[16px] !h-[4px] inline-block  + ' + className + '"></span>';
-    },
+    // renderBullet: function (index, className) {
+    //   return '<span class="'+ className +' !bg-[#999999] !rounded-[8px] !w-[16px] !h-[4px] inline-block"></span>';
+    // },
   };
 
   return (

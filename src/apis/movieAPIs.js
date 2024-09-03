@@ -30,7 +30,11 @@ const movieAPIs = {
   getCastByMovie(id) {
     const url = `movie/${id}/credits?api_key=${API_KEY}`
     return axiosClient.get(url);
-  }
+  },
+  searchMovies(query) {
+    const url = `search/movie?api_key=${API_KEY}&query=${query}`
+    return axiosClient.get(url);
+  },
 }
 
 export default movieAPIs;
