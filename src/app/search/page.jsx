@@ -22,7 +22,7 @@ const Search = () => {
     };
     search();
   }, [searchTerm]);
-  console.log(searchResult);
+  // console.log(searchResult);
   return (
     <div className="py-[64px]">
       <div className="container mx-auto">

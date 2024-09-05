@@ -1,8 +1,13 @@
-function Subscription(props) {
+import Cta from "@/components/Cta/page";
+
+const { default: Pricing } = require("@/components/Pricing/Pricing");
+
+function Subscription() {
   return (
-    <div>
-      This is Subscription Page
-    </div>
+    <>
+      <Pricing/>
+      <Cta/>
+    </>
   );
 }
 

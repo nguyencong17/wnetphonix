@@ -96,7 +96,7 @@ export const Header = () => {
                 pathname === "/subscription" ? "active text-white" : ""
               }`}
             >
-              <Link href={"/subscription"}>Subscriptions</Link>
+              <Link href={"/subscription"}>Pricing</Link>
             </li>
           </ul>
           {/* Action */}

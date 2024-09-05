@@ -68,8 +68,8 @@ function Movies() {
 
   return (
     <>
-      {/* <Slide /> */}
-      {/* <div className="py-[128px]">
+      <Slide />
+      <div className="py-[128px]">
         <div className="container mx-auto">
           <Badge className="bg-[#e50000] text-white rounded-lg px-5 py-4 text-[20px] leading-none ml-[50px]">
             Movies
@@ -81,8 +81,8 @@ function Movies() {
             <ListMovie listmovie={upcoming} tag={'upcoming'} label={"Comming Soon"} />
           </div>
         </div>
-      </div> */}
-      {/* <Cta /> */}
+      </div>
+      <Cta />
     </>
   );
 }

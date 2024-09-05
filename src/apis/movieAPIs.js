@@ -35,6 +35,10 @@ const movieAPIs = {
     const url = `search/movie?api_key=${API_KEY}&query=${query}`
     return axiosClient.get(url);
   },
+  getVideosByMovie(id) {
+    const url = `movie/${id}/videos?api_key=${API_KEY}`
+    return axiosClient.get(url);
+  }
 }
 
 export default movieAPIs;
