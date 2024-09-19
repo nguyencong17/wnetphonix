@@ -7,40 +7,40 @@ function Footer() {
       <div className="container mx-auto">
         <div className="grid grid-cols-6">
           <div>
-            <h5>Home</h5>
-            <p>Categories</p>
-            <p>Devices</p>
-            <p>Pricing</p>
-            <p>FAQ</p>
+            <h5 className="mb-4">Home</h5>
+            <p className="mb-4">Categories</p>
+            <p className="mb-4">Devices</p>
+            <p className="mb-4">Pricing</p>
+            <p className="mb-4">FAQ</p>
           </div>
           <div>
-            <h5>Movies</h5>
-            <p>Genres</p>
-            <p>Trending</p>
-            <p>New Release</p>
-            <p>Popular</p>
+            <h5 className="mb-4">Movies</h5>
+            <p className="mb-4">Genres</p>
+            <p className="mb-4">Trending</p>
+            <p className="mb-4">New Release</p>
+            <p className="mb-4">Popular</p>
           </div>
           <div>
-            <h5>Shows</h5>
-            <p>Genres</p>
-            <p>Trending</p>
-            <p>New Release</p>
-            <p>Popular</p>
+            <h5 className="mb-4">Shows</h5>
+            <p className="mb-4">Genres</p>
+            <p className="mb-4">Trending</p>
+            <p className="mb-4">New Release</p>
+            <p className="mb-4">Popular</p>
           </div>
           <div>
-            <h5>Support</h5>
-            <p>Contact Us</p>
+            <h5 className="mb-4">Support</h5>
+            <p className="mb-4">Contact Us</p>
           </div>
           <div>
-            <h5>Subcription</h5>
-            <p>Plans</p>
-            <p>Features</p>
+            <h5 className="mb-4">Subcription</h5>
+            <p className="mb-4">Plans</p>
+            <p className="mb-4">Features</p>
           </div>
           <Social />
         </div>
 
         <div className="flex justify-between pt-8">
-          <p>@2023 streamvib, All Rights Reserved</p>
+          <p className="mb-4">@2023 streamvib, All Rights Reserved</p>
           <ul className="flex gap-4">
             <li>Terms of Use</li>
             <li>Privacy Policy</li>

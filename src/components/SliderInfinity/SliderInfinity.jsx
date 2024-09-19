@@ -32,7 +32,7 @@ function SliderInfinity() {
             alt="HERO IMAGE"
             width={"100%"}
             height={"100%"}
-            className="h-full object-cover object-right-top"
+            className="w-full h-full object-cover object-right-top"
           />
         </SwiperSlide>
         <SwiperSlide className="mb-8">
@@ -41,7 +41,7 @@ function SliderInfinity() {
             alt="HERO IMAGE"
             width={"100%"}
             height={"100%"}
-            className="h-full object-cover object-right-top"
+            className="w-full h-full object-cover object-right-top"
           />
         </SwiperSlide>
         <SwiperSlide className="mb-8">
@@ -50,7 +50,7 @@ function SliderInfinity() {
             alt="HERO IMAGE"
             width={"100%"}
             height={"100%"}
-            className="h-full object-cover object-right-top"
+            className="w-full h-full object-cover object-right-top"
           />
         </SwiperSlide>
         <SwiperSlide className="mb-8">
@@ -59,7 +59,7 @@ function SliderInfinity() {
             alt="HERO IMAGE"
             width={"100%"}
             height={"100%"}
-            className="h-full object-cover object-right-top"
+            className="w-full h-full object-cover object-right-top"
           />
         </SwiperSlide>
       </Swiper>

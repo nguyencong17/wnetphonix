@@ -4,7 +4,7 @@ const IconButton = (props) => {
   const { icon, label } = props;
   return (
     <button className="flex items-center space-x-2 hover:text-white bg-[#E50000] rounded-lg px-8 py-4 text-white">
-      <PlayIcon className="w-7 h-7"/>
+      <PlayIcon className="w-7 h-7 mr-2"/>
       {label}
     </button>
   );

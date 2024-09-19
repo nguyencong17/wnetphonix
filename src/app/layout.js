@@ -16,7 +16,7 @@ export default function RootLayout({ children }) {
       <body className={`${manrope.className} bg-[#050505]`}>
         <Header />
         {children}
-        <Footer />
+        {/* <Footer /> */}
       </body>
     </html>
   );

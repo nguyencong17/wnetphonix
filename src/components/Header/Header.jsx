@@ -64,12 +64,22 @@ export const Header = () => {
         pathname === "/" ? "fixed" : ""
       }`}
     >
-      <div className="container mx-auto py-8 relative z-10">
+      <div className="container mx-auto py-8 px-4 relative z-10  backdrop-blur-[5px] opacity-90;">
         <div className="flex justify-between items-center">
           {/* Logo */}
-          <Image src={Logo} alt="Logo" width={200} height={60} priority={true}/>
+          <Link href={"/"}>
+            <Image
+              src={Logo}
+              alt="Logo"
+              width={200}
+              height={60}
+              priority={true}
+              className="w-[200px] lg:w-[200px]"
+            />
+          </Link>
           {/* Menu */}
-          <ul className="flex bg-[#050505] rounded-lg p-2 gap-4 menu">
+
+          <ul className="hidden lg:flex bg-[#050505] rounded-lg p-2 gap-4 menu">
             <li
               className={`p-4 rounded-lg hover:bg-[#1a1a1a] ${
                 pathname === "/" ? "active text-white" : ""
@@ -93,23 +103,23 @@ export const Header = () => {
             </li>
             <li
               className={`p-4 rounded-lg hover:bg-[#1a1a1a] ${
-                pathname === "/subscription" ? "active text-white" : ""
+                pathname === "/pricing" ? "active text-white" : ""
               }`}
             >
-              <Link href={"/subscription"}>Pricing</Link>
+              <Link href={"/pricing"}>Pricing</Link>
             </li>
           </ul>
           {/* Action */}
-          <div className="flex gap-6 text-white relative">
+          <div className="hidden lg:flex gap-6 text-white relative">
             <form onSubmit={handleSubmit} className="flex items-center gap-4">
               <input
                 type="text"
                 placeholder="Search"
-                className="bg-[#1a1a1a] p-2 rounded-lg"
+                className="bg-transparent border border-bordercolor rounded-[16px] relative p-4 focus:border-[rgba(255,255,255,0.3)] focus:outline-none"
                 onChange={handleChange}
                 value={searchTerm}
               />
-              <button type="submit">
+              <button type="submit" className="absolute z-2 right-[10px]">
                 <MagnifyingGlassIcon className="h-8 w-8" />
               </button>
             </form>
@@ -133,7 +143,23 @@ export const Header = () => {
                 ))}
               </ul>
             )}
-            <BellAlertIcon className="h-8 w-8" />
+          </div>
+
+          <div className="lg:hidden">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="size-6"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+              />
+            </svg>
           </div>
         </div>
       </div>

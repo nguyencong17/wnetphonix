@@ -8,9 +8,9 @@ import sv6 from "../../../public/services/sv-6.svg";
 function Services(props) {
   return (
     <div className="service relative">
-      <div className="container mx-auto py-[128px]">
+      <div className="container mx-auto px-4 py-[96px] lg:py-[128px]">
         <div className="max-w-[1100px]">
-          <h3 className="mb-4">
+          <h3 className="mb-4 text-[28px] lg:text-[36px]">
             We Provide you streaming experience across various devices.
           </h3>
           <p className="mb-8">
@@ -20,7 +20,7 @@ function Services(props) {
             entertainment.
           </p>
         </div>
-        <div className="grid grid-cols-3 gap-6">
+        <div className="grid grid- cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
           <div className="flex gap-8 p-[40px] border-bdcolor rounded-lg bg-[#0F0F0F] items-start">
             <Image src={sv1} alt="sv1" width={72} height={72} />
             <div className="flex-1">

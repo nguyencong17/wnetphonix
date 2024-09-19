@@ -2,8 +2,9 @@ import React from "react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import IconButton from "../IconButton/IconButton";
 import { Button } from "../ui/button";
+import Link from "next/link";
 
-function Pricing(props) {
+function Plan() {
   return (
     <div className="pricing">
       <div className="container mx-auto relative">
@@ -37,8 +38,12 @@ function Pricing(props) {
                     <p className="text-[18px]">month</p>
                   </div>
                   <div className="flex gap-4 mt-10">
-                    <Button variant="secondary">Start Free Trial</Button>
-                    <Button>Choose Plan</Button>
+                    <Link href={"/pricing"}>
+                      <Button variant="secondary">Start Free Trial</Button>
+                    </Link>
+                    <Link href={"/pricing"}>
+                      <Button>Choose Plan</Button>
+                    </Link>
                   </div>
                 </div>
                 <div className="p-12 bg-[#343434] rounded-lg border border-bordercolor">
@@ -53,8 +58,12 @@ function Pricing(props) {
                     <p className="text-[18px]">month</p>
                   </div>
                   <div className="flex gap-4 mt-10">
-                    <Button variant="secondary">Start Free Trial</Button>
-                    <Button>Choose Plan</Button>
+                    <Link href={"/pricing"}>
+                      <Button variant="secondary">Start Free Trial</Button>
+                    </Link>
+                    <Link href={"/pricing"}>
+                      <Button>Choose Plan</Button>
+                    </Link>
                   </div>
                 </div>
                 <div className="p-12 bg-[#343434] rounded-lg border border-bordercolor">
@@ -69,8 +78,12 @@ function Pricing(props) {
                     <p className="text-[18px]">month</p>
                   </div>
                   <div className="flex gap-4 mt-10">
-                    <Button variant="secondary">Start Free Trial</Button>
-                    <Button>Choose Plan</Button>
+                    <Link href={"/pricing"}>
+                      <Button variant="secondary">Start Free Trial</Button>
+                    </Link>
+                    <Link href={"/pricing"}>
+                      <Button>Choose Plan</Button>
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -89,8 +102,12 @@ function Pricing(props) {
                     <p className="text-[18px]">month</p>
                   </div>
                   <div className="flex gap-4 mt-10">
-                    <Button variant="secondary">Start Free Trial</Button>
-                    <Button>Choose Plan</Button>
+                    <Link href={"/pricing"}>
+                      <Button variant="secondary">Start Free Trial</Button>
+                    </Link>
+                    <Link href={"/pricing"}>
+                      <Button>Choose Plan</Button>
+                    </Link>
                   </div>
                 </div>
                 <div className="p-12 bg-[#343434] rounded-lg border border-bordercolor">
@@ -105,8 +122,12 @@ function Pricing(props) {
                     <p className="text-[18px]">month</p>
                   </div>
                   <div className="flex gap-4 mt-10">
-                    <Button variant="secondary">Start Free Trial</Button>
-                    <Button>Choose Plan</Button>
+                    <Link href={"/pricing"}>
+                      <Button variant="secondary">Start Free Trial</Button>
+                    </Link>
+                    <Link href={"/pricing"}>
+                      <Button>Choose Plan</Button>
+                    </Link>
                   </div>
                 </div>
                 <div className="p-12 bg-[#343434] rounded-lg border border-bordercolor">
@@ -121,8 +142,12 @@ function Pricing(props) {
                     <p className="text-[18px]">month</p>
                   </div>
                   <div className="flex gap-4 mt-10">
-                    <Button variant="secondary">Start Free Trial</Button>
-                    <Button>Choose Plan</Button>
+                    <Link href={"/pricing"}>
+                      <Button variant="secondary">Start Free Trial</Button>
+                    </Link>
+                    <Link href={"/pricing"}>
+                      <Button>Choose Plan</Button>
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -134,4 +159,4 @@ function Pricing(props) {
   );
 }
 
-export default Pricing;
+export default Plan;
