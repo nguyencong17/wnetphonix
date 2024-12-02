@@ -5,51 +5,28 @@ import PropTypes from "prop-types";
 
 export const Card = (props) => {
   const { movie } = props;
+
   // date
   const dateString = movie.release_date;
   const year = moment(dateString).year();
 
-  // Movie name
-  // const title = movie.title;
-  // const moviename = title.length > 15 ? `${title.slice(0, 15)}...` : title;
   return (
     <div>
-      <Link href={`/movie/${movie.id}`}>
-        <div key={movie.id} className="p-5 bg-[#1A1A1A] rounded-[8px] relative">
-          <div className="w-full pb-[177%] relative">
+      <Link href={`/movie/${movie.slug}`}>
+        <div key={movie.id} className="rounded-[8px] h-full">
+          <div className="w-full h-full flex flex-col relative">
             <Image
-              src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}` || "/placeholder.png"}
-              alt={'abc'}
+              src={movie.thumb_url || movie.poster_url || ''}
+              alt={movie.name}
               width={400}
-              height={600}
-              className="rounded-lg absolute top-0 left-0 right-0 bottom-0 w-full h-full object-cover z-1"
+              height={350}
+              className="rounded-lg  w-full max-h-[300px] object-cover z-1"
             />
-            <div>
-              <div className="absolute top-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent h-full w-full rounded-lg z-2"></div>
-            </div>
-            <div className="p-4 bg-[rgba(0,0,0,.9)] absolute bottom-0 left-0 right-0 text-white rounded-b-lg flex items-center gap-6 justify-between z-3">
+            
+            <div className=" mt-4 text-white rounded-b-lg flex-1 gap-6 justify-between h-full">
               <div>
-                <h4 className="text-[16px] mb-2">{movie.title}</h4>
-                <p className="font-medium">{year}</p>
-              </div>
-              <div className="flex gap-1">
-                <p className="text-yellow-400">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 24 24"
-                    fill="currentColor"
-                    className="size-6"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.006 5.404.434c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.434 2.082-5.005Z"
-                      clipRule="evenodd"
-                    />
-                  </svg>
-                </p>
-                <p className="font-bold">
-                  {Math.round(movie.vote_average * 10) / 10}
-                </p>
+                <h4 className="text-[16px] mb-2 line-1">{movie.name}</h4>
+                <p className="font-bold">{movie.current_episode == 'FULL' ? 'Full' : movie.current_episode}</p>
               </div>
             </div>
           </div>

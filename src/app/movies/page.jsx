@@ -1,85 +1,123 @@
 "use client";
 import movieAPIs from "@/apis/movieAPIs";
+import SwiperCoverflow from "@/components/CoverflowEffect/CoverflowEffect";
 import Cta from "@/components/Cta/page";
-import { Genres } from "@/components/Genres/Genres";
-import { ListMovie } from "@/components/ListMovie/ListMovie";
-import Slide from "@/components/Slide/Slide";
-import { Badge } from "@/components/ui/badge";
+import { ListMovieSlider } from "@/components/ListMovie/ListMovie";
+import { getUpdatingList } from "@/store/actions/actions";
+import { getUpdatingListSelector } from "@/store/selectors";
 import { useEffect, useState } from "react";
-
-// import useSWR from "swr";
-// // SWR
-// const fetcher = (url) => fetch(url).then((res) => res.json());
+import { useDispatch, useSelector } from "react-redux";
 
 function Movies() {
-  const [genres, setGenres] = useState([]);
-  const [trending, setTrending] = useState([]);
-  const [toprated, setToprated] = useState([]);
-  const [upcoming, setUpcoming] = useState([]);
+
+  // Redux
+  const dispatch = useDispatch();
+
+  //State
+  const [action, setAction] = useState([]);
+  const [anime, setAnime] = useState([]);
+  const [china, setChina] = useState([]);
+  const [korea, setKorea] = useState([]);
+  const [usa, setUsa] = useState([]);
+  const [vietnam, setVietnam] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   // Fetch By Axios Client
   // ================================================
   useEffect(() => {
     async function fetchData() {
       try {
-        const trending = await movieAPIs.getAllMovies(1);
-        const toprated = await movieAPIs.getMovieByLatest(2);
-        const upcoming = await movieAPIs.getMovieByUpcoming(1);
-        const genres = await movieAPIs.getGenres();
-        
-        setGenres(genres.data.genres);
-        setTrending(trending.data.results);
-        setToprated(toprated.data.results);
-        setUpcoming(upcoming.data.results);
+        // Get updating movies
+        const updatingmovies = await movieAPIs.getUpdatingMovies(1);
+
+        // Category: Action
+        const action = await movieAPIs.getMoviesByCatgory("hanh-dong", 1);
+
+        // Category: Anime
+        const anime = await movieAPIs.getMoviesByCatgory("hoat-hinh", 1);
+
+        // Country: China
+        const china = await movieAPIs.getMoviesByCountry("trung-quoc", 1);
+
+        // Country: Korea
+        const korea = await movieAPIs.getMoviesByCountry("han-quoc", 1);
+
+        // Country: USA
+        const usa = await movieAPIs.getMoviesByCountry("au-my", 1);
+
+        // Country: Vietnam
+        const vietnam = await movieAPIs.getMoviesByCountry("viet-nam", 1);
+
+        // Update state data
+        // setNewlyMovies(newlymovies.data.items);
+        setAction(action.data.items);
+        setAnime(anime.data.items);
+        setChina(china.data.items);
+        setKorea(korea.data.items);
+        setUsa(usa.data.items);
+        setVietnam(vietnam.data.items);
+        dispatch(getUpdatingList(updatingmovies.data.items));
+        setLoading(false);
       } catch (error) {
         console.log(error);
       }
-    };
+    }
     fetchData();
-  }, [])
+  }, []);
 
-  // Fetch By Fetch WEBAPI
-  // ================================================
-  // useEffect(() => {
-  //   const data = async () => {
-  //     try {
-  //       const res = await fetch('https://api.themoviedb.org/3/movie/popular?api_key=dc3b868166ffb5e89b71f42b9958f8a7&language=en-US&page=1');
-  //       const datamovie = await res.json();
-  //       setListMovie(datamovie.results);
-  //     } catch (error) {
-  //       console.log(error);
-  //     }
-  //   };
-  //   data();
-  // }, []);
-
-  // Fetch By useSWR
-  // ================================================
-  // const { data, error, isLoading } = useSWR(
-  //   "https://api.themoviedb.org/3/movie/popular?api_key=dc3b868166ffb5e89b71f42b9958f8a7&language=en-US&page=1&limit=10",
-  //   fetcher
-  // );
-  // let listmovie = data?.results;
-  // listmovie = listmovie?.slice(0, 10);
-  // console.log("Trending Now ", listmovie);
-
-  // if (error) return "An error has occurred.";
-  // if (isLoading) return "Loading...";
+  const updating = useSelector(getUpdatingListSelector);
 
   return (
     <>
-      <Slide />
-      <div className="py-[128px]">
-        <div className="container mx-auto">
-          <Badge className="bg-[#e50000] text-white rounded-lg px-5 py-4 text-[20px] leading-none ml-[50px]">
-            Movies
-          </Badge>
-          <div className="border border-bordercolor p-[50px] rounded-lg -mt-[27px] flex flex-col gap-[50px]">
-            <Genres genres={genres} tag={'genres'} label={'Our Genres'}/>
-            <ListMovie listmovie={trending} tag={'trending'} label={"Trending Now"} />
-            <ListMovie listmovie={toprated} tag={'toprated'} label={"Top Rated"} />
-            <ListMovie listmovie={upcoming} tag={'upcoming'} label={"Comming Soon"} />
-          </div>
+      {/* <Slide /> */}
+      <div className="container mt-[100px] !pl-[256px] !pr-[256px] relative overflow-hidden">
+        <SwiperCoverflow listmovie={updating} loading={loading} />
+      </div>
+
+      <div className="container mt-[-200px] relative z-10">
+        <div className="flex flex-col gap-[50px]">
+          <ListMovieSlider
+            listmovie={action}
+            slug={"hanh-dong"}
+            tag={"action"}
+            label={"Action"}
+            loading={loading}
+          />
+          <ListMovieSlider
+            listmovie={anime}
+            slug={"hoat-hinh"}
+            tag={"anime"}
+            label={"Anime"}
+            loading={loading}
+          />
+          <ListMovieSlider
+            listmovie={china}
+            slug={"trung-quoc"}
+            tag={"china"}
+            label={"China"}
+            loading={loading}
+          />
+          <ListMovieSlider
+            listmovie={korea}
+            slug={"han-quoc"}
+            tag={"korea"}
+            label={"Korea"}
+            loading={loading}
+          />
+          <ListMovieSlider
+            listmovie={usa}
+            slug={"au-my"}
+            tag={"usa"}
+            label={"USA"}
+            loading={loading}
+          />
+          <ListMovieSlider
+            listmovie={vietnam}
+            slug={"viet-nam"}
+            tag={"vietnam"}
+            label={"Việt Nam"}
+            loading={loading}
+          />
         </div>
       </div>
       <Cta />

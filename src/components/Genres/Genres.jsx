@@ -54,9 +54,9 @@ export function Genres(props) {
     <div>
       <div className="flex justify-between items-center mb-12">
         <h2 className="text-[36px]">{label}</h2>
-        <div className="flex gap-4 border border-bordercolor p-4 bg-[#1a1a1a] rounded-[8px] items-center">
+        <div className="flex gap-4 border p-4 bg-[#1a1a1a] rounded-[8px] items-center">
           <div
-            className={`${tag}-arrow-left arrow cursor-pointer bg-[#050505] p-2 rounded-[8px] border border-bordercolor`}
+            className={`${tag}-arrow-left arrow cursor-pointer bg-[#050505] p-2 rounded-[8px] border`}
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -73,7 +73,7 @@ export function Genres(props) {
           </div>
           <div className={`${tag}-swiper-pagination-custom`}></div>
           <div
-            className={`${tag}-arrow-right arrow cursor-pointer bg-[#050505] p-2 rounded-[8px] border border-bordercolor`}
+            className={`${tag}-arrow-right arrow cursor-pointer bg-[#050505] p-2 rounded-[8px] border`}
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"

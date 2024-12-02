@@ -10,63 +10,46 @@ import "swiper/css/navigation";
 
 // import required modules
 import { Pagination, Navigation } from "swiper/modules";
+import Link from "next/link";
 
-export const ListMovie = (props) => {
-  const { tag, label } = props;
+// Skeleton
+import { Skeleton } from "@/components/ui/skeleton";
+
+export const ListMovieSlider = (props) => {
+  const { tag, label, slug, loading } = props;
   let listmovie = props.listmovie;
-  listmovie = listmovie.slice(0, 6);
 
   const pagination = {
     el: `.${tag}-swiper-pagination-custom`,
-    // clickable: true,
-    // renderBullet: function (index, className) {
-    //   return (
-    //     '<span className="'+className+'!bg-[#999999] !rounded-[8px] !w-[16px] !h-[4px] inline-block"></span>'
-    //   );
-    // },
   };
 
   return (
     <div className={tag}>
-      <div className="flex justify-between items-center mb-12">
+      <Link
+        className="inline-flex items-center mb-4 cursor-pointer text-white gap-4"
+        href={`/list/${slug}`}
+      >
         <h2 className="text-[36px]">{label}</h2>
-        <div className="flex gap-4 border border-bordercolor p-4 bg-[#1a1a1a] rounded-[8px] items-center">
-          <div className={`${tag}-arrow-left arrow cursor-pointer bg-[#050505] p-2 rounded-[8px] border border-bordercolor`}>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              fill="currentColor"
-              className="size-6"
-            >
-              <path
-                fillRule="evenodd"
-                d="M7.72 12.53a.75.75 0 0 1 0-1.06l7.5-7.5a.75.75 0 1 1 1.06 1.06L9.31 12l6.97 6.97a.75.75 0 1 1-1.06 1.06l-7.5-7.5Z"
-                clipRule="evenodd"
-              />
-            </svg>
-          </div>
-          <div className={`${tag}-swiper-pagination-custom`}></div>
-          <div className={`${tag}-arrow-right arrow cursor-pointer bg-[#050505] p-2 rounded-[8px] border border-bordercolor`}>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              fill="currentColor"
-              className="size-6"
-            >
-              <path
-                fillRule="evenodd"
-                d="M16.28 11.47a.75.75 0 0 1 0 1.06l-7.5 7.5a.75.75 0 0 1-1.06-1.06L14.69 12 7.72 5.03a.75.75 0 0 1 1.06-1.06l7.5 7.5Z"
-                clipRule="evenodd"
-              />
-            </svg>
-          </div>
-        </div>
-      </div>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          strokeWidth="1.5"
+          stroke="currentColor"
+          className="size-6"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"
+          />
+        </svg>
+      </Link>
 
       <Swiper
         // onSwiper={setSwiperRef}
-        slidesPerView={5}
-        spaceBetween={30}
+        slidesPerView={7}
+        spaceBetween={16}
         modules={[Navigation, Pagination]}
         pagination={pagination}
         navigation={{
@@ -76,12 +59,27 @@ export const ListMovie = (props) => {
         className=""
         loop={true}
       >
-        {listmovie &&
-          listmovie.map((movie) => (
-            <SwiperSlide key={movie.id}>
-              <Card movie={movie} />
-            </SwiperSlide>
-          ))}
+        {loading
+          ? Array(7)
+              .fill(0)
+              .map((_, index) => (
+                <SwiperSlide key={index}>
+                  <Skeleton
+                    key={index}
+                    className="h-[300px] w-[240px] rounded-xl bg-skeleton"
+                  />
+                  <div className="space-y-2 mt-4">
+                    <Skeleton className="h-4 w-[240px] bg-skeleton" />
+                    <Skeleton className="h-4 w-[200px] bg-skeleton" />
+                  </div>
+                </SwiperSlide>
+              ))
+          : listmovie &&
+            listmovie.map((movie, index) => (
+              <SwiperSlide key={index}>
+                <Card movie={movie} />
+              </SwiperSlide>
+            ))}
       </Swiper>
     </div>
   );

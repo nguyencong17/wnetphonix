@@ -21,7 +21,7 @@ function Services(props) {
           </p>
         </div>
         <div className="grid grid- cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
-          <div className="flex gap-8 p-[40px] border-bdcolor rounded-lg bg-[#0F0F0F] items-start">
+          <div className="flex gap-8 p-[40px] border rounded-lg bg-secondary items-start">
             <Image src={sv1} alt="sv1" width={72} height={72} />
             <div className="flex-1">
               <h5 className="mb-2">Smartphones</h5>
@@ -32,7 +32,7 @@ function Services(props) {
               </p>
             </div>
           </div>
-          <div className="flex gap-8 p-[40px] border-bdcolor rounded-lg bg-[#0F0F0F] items-start">
+          <div className="flex gap-8 p-[40px] border rounded-lg bg-secondary items-start">
             <Image src={sv2} alt="sv2" width={72} height={72} />
             <div className="flex-1">
               <h5 className="mb-2">Tablet</h5>
@@ -43,7 +43,7 @@ function Services(props) {
               </p>
             </div>
           </div>
-          <div className="flex gap-8 p-[40px] border-bdcolor rounded-lg bg-[#0F0F0F] items-start">
+          <div className="flex gap-8 p-[40px] border rounded-lg bg-secondary items-start">
             <Image src={sv3} alt="sv3" width={72} height={72} />
             <div className="flex-1">
               <h5 className="mb-2">Smart TV</h5>
@@ -54,7 +54,7 @@ function Services(props) {
               </p>
             </div>
           </div>
-          <div className="flex gap-8 p-[40px] border-bdcolor rounded-lg bg-[#0F0F0F] items-start">
+          <div className="flex gap-8 p-[40px] border rounded-lg bg-secondary items-start">
             <Image src={sv4} alt="sv4" width={72} height={72} />
             <div className="flex-1">
               <h5 className="mb-2">Laptops</h5>
@@ -65,7 +65,7 @@ function Services(props) {
               </p>
             </div>
           </div>
-          <div className="flex gap-8 p-[40px] border-bdcolor rounded-lg bg-[#0F0F0F] items-start">
+          <div className="flex gap-8 p-[40px] border rounded-lg bg-secondary items-start">
             <Image src={sv5} alt="sv5" width={72} height={72} />
             <div className="flex-1">
               <h5 className="mb-2">Gaming Consoles</h5>
@@ -76,7 +76,7 @@ function Services(props) {
               </p>
             </div>
           </div>
-          <div className="flex gap-8 p-[40px] border-bdcolor rounded-lg bg-[#0F0F0F] items-start">
+          <div className="flex gap-8 p-[40px] border rounded-lg bg-secondary items-start">
             <Image src={sv6} alt="sv6" width={72} height={72} />
             <div className="flex-1">
               <h5 className="mb-2">VR Headsets</h5>

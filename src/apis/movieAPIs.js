@@ -1,5 +1,5 @@
 import { API_KEY } from "@/utils/constants";
-import { axiosClient } from "./axiosClient";
+import { axiosClient, axiosClient2 } from "./axiosClient";
 
 
 const movieAPIs = {
@@ -7,9 +7,10 @@ const movieAPIs = {
     const url = `movie/popular?api_key=${API_KEY}&language=en-US&page=${page}`
     return axiosClient.get(url);
   },
-  getMovieById(id) {
-    const url = `movie/${id}?api_key=${API_KEY}`
-    return axiosClient.get(url);
+  getMovieById(slug) {
+    // const url = `movie/${id}?api_key=${API_KEY}`
+    const url = `film/${slug}`
+    return axiosClient2.get(url);
   },
   getMovieByLatest(page) {
     const url = `movie/top_rated?api_key=${API_KEY}&language=en-US&page=${page}`
@@ -31,14 +32,34 @@ const movieAPIs = {
     const url = `movie/${id}/credits?api_key=${API_KEY}`
     return axiosClient.get(url);
   },
+  // searchMovies(query) {
+  //   const url = `search/movie?api_key=${API_KEY}&query=${query}`
+  //   return axiosClient.get(url);
+  // },
   searchMovies(query) {
-    const url = `search/movie?api_key=${API_KEY}&query=${query}`
-    return axiosClient.get(url);
+    const url = `films/search?keyword=${query}`
+    return axiosClient2.get(url);
   },
   getVideosByMovie(id) {
     const url = `movie/${id}/videos?api_key=${API_KEY}`
     return axiosClient.get(url);
-  }
+  },
+  getUpdatingMovies(page) {
+    const url = `films/danh-sach/phim-dang-chieu?page=${page}`
+    return axiosClient2.get(url);
+  },
+  getMoviesByCatgory(category, page) {
+    const url = `films/the-loai/${category}?page=${page}`
+    return axiosClient2.get(url);
+  },
+  getMoviesByCountry(country, page) {
+    const url = `films/quoc-gia/${country}?page=${page}`
+    return axiosClient2.get(url);
+  },  
+  getMoviesBySlug(slug, page) {
+    const url = `films/the-loai/${slug}?page=${page}`
+    return axiosClient2.get(url);
+  },
 }
 
 export default movieAPIs;

@@ -6,8 +6,10 @@
   :root {
     --radius: 0.5rem;
     --primary: #e50000;
-    --secondary: #050505;
-    --border: rgba(255, 255, 255, 0.1);
+    --border: #2d2f34;
+    --background: #111319;
+    --foreground: #0a0c0f;
+    --skeleton: rgba(255,255,255,0.2);
   }
   body {
     @apply text-gray;
@@ -155,4 +157,61 @@
 
 span.swiper-pagination-bullet-active{
   background: #e50000 !important;
+}
+
+
+/* Movie Detail */
+.info {
+  display: inline-block;       /* Hiển thị các phần tử theo hàng ngang */
+  position: relative;
+  padding: 0 10px;             /* Khoảng cách ngang cho từng phần tử */
+  font-size: 16px;
+}
+
+.info::after {
+  content: '|';                /* Nội dung là dấu gạch dọc */
+  position: absolute;
+  right: 0;                    /* Căn phải dấu gạch */
+  top: 50%;
+  transform: translateY(-50%); /* Căn giữa dấu gạch dọc */
+  color: #525252;              /* Màu sắc của dấu gạch dọc */
+}
+
+.info:last-child::after {
+  content: '';                 /* Bỏ dấu gạch cho phần tử cuối */
+}
+
+.movie-format .info:first-child {
+  padding-left: 0;
+}
+
+.line-1 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 1; /* number of lines to show */
+          line-clamp: 1; 
+  -webkit-box-orient: vertical;
+}
+
+/* Custom scrollbar */
+/* Width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: rgba(255,255,255,0.2);
+  border-top-right-radius: .5rem ; 
+  border-bottom-right-radius: .5rem ; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: var(--foreground); 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555; 
 }

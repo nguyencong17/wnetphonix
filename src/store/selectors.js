@@ -1,0 +1,1 @@
+export const getUpdatingListSelector = (state) => state.movieList.updating;

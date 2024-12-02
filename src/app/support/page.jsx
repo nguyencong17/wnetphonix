@@ -7,10 +7,10 @@ import { Textarea } from "@/components/ui/textarea";
 function Support() {
   return (
     <>
-      <div className="container mx-auto">
-        <div className="flex justify-between gap-16 mt-32 mb-32">
+      <div className="container mx-auto p-4">
+        <div className="flex flex-col 2xl:flex-row justify-between gap-8 2xl:gap-16 mt-4 2xl:mt-32 mb-4 2xl:mb-32">
           <div>
-            <h1 className="text-[46px] lg:max-w-[550px] mb-4 leading-[1.2]">
+            <h1 className="text-[28px] 2xl:text-[46px] lg:max-w-[550px] mb-4 leading-[1.2]">
               Welcome to our StreamVibe support page!
             </h1>
             <p className="text-[18px] mb-4">
@@ -24,7 +24,7 @@ function Support() {
                 viewBox="0 0 24 24"
                 strokeWidth="1.5"
                 stroke="currentColor"
-                class="size-6"
+                className="size-6"
               >
                 <path
                   strokeLinecap="round"
@@ -41,7 +41,7 @@ function Support() {
                 viewBox="0 0 24 24"
                 strokeWidth="1.5"
                 stroke="currentColor"
-                class="size-6"
+                className="size-6"
               >
                 <path
                   strokeLinecap="round"
@@ -63,7 +63,7 @@ function Support() {
                 viewBox="0 0 24 24"
                 strokeWidth="1.5"
                 stroke="currentColor"
-                class="size-6"
+                className="size-6"
               >
                 <path
                   strokeLinecap="round"
@@ -78,13 +78,13 @@ function Support() {
           </div>
           <form
             action=""
-            className="flex flex-1 flex-col gap-4 p-8 bg-[#1A1A1A] rounded-lg items-end"
+            className="flex flex-1 flex-col gap-4 p-4 2xl:p-8 border rounded-lg items-end"
           >
-            <div className="grid grid-cols-2 gap-4 w-full">
+            <div className="grid grid-cols-1 2xl:grid-cols-2 gap-4 w-full">
               <Input type="text" placeholder="Enter First Name" />
               <Input type="text" placeholder="Enter Last Name" />
             </div>
-            <div className="grid grid-cols-2 gap-4 w-full">
+            <div className="grid grid-cols-1 2xl:grid-cols-2 gap-4 w-full">
               <Input type="email" placeholder="Enter your email" />
               <Input type="text" placeholder="Enter Phone Number" />
             </div>
@@ -94,6 +94,7 @@ function Support() {
               cols="30"
               rows="10"
               placeholder="Enter your message"
+              className="bg-[rgba(255,255,255,0.2)] text-[rgba(255,255,255,0.6)]"
             ></Textarea>
             <button
               type="submit"

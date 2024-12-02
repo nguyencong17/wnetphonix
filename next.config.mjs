@@ -8,6 +8,18 @@ const nextConfig = {
         port: '',
         pathname: '/**'
       },
+      {
+        protocol: 'https',
+        hostname: 'phim.nguonc.com',
+        port: '',
+        pathname: '/**'
+      },
+      {
+        protocol: 'https',
+        hostname: 'placehold.co',
+        port: '',
+        pathname: '/**'
+      },
     ],
   },
 };

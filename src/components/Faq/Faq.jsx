@@ -8,10 +8,10 @@ import {
 } from "@/components/ui/accordion";
 import Link from "next/link";
 
-function Faq(props) {
+function Faq() {
   return (
     <div className="faq">
-      <div className="container mx-auto pb-[96px] lg:pb-[128px] px-4">
+      <div className="container mx-auto pb-[48px] 2xl:pb-[128px] px-4">
         <div className="flex flex-col xl:flex-row xl:items-center justify-between mb-16 gap-4
         ">
           <div className="max-w-[1100px]">

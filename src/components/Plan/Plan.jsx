@@ -7,7 +7,7 @@ import Link from "next/link";
 function Plan() {
   return (
     <div className="pricing">
-      <div className="container mx-auto relative">
+      <div className="container mx-auto relative px-4">
         <div className="flex items-center justify-between">
           <div className="max-w-[1100px]">
             <h3 className="mb-4">Choose the plan that's right for you</h3>
@@ -20,13 +20,13 @@ function Plan() {
         </div>
         <div>
           <Tabs defaultValue="monthly">
-            <TabsList className="absolute top-[32px] right-0 rounded-lg bg-[#0f0f0f] border border-neutral-600 p-1 h-auto">
+            <TabsList className="absolute top-[32px] right-0 rounded-lg bg-secondary border border-neutral-600 p-1 h-auto">
               <TabsTrigger value="monthly">Monthly</TabsTrigger>
               <TabsTrigger value="yearly">Yearly</TabsTrigger>
             </TabsList>
             <TabsContent value="monthly" className="mt-20">
-              <div className="grid grid-cols-3 gap-8">
-                <div className="p-12 bg-[#343434] rounded-lg border border-bordercolor">
+              <div className="grid grid-cols-1 2xl:grid-cols-3 gap-8">
+                <div className="p-12 rounded-lg border">
                   <h4>Basic Plan</h4>
                   <p className="mt-4 text-[18px]">
                     Enjoy an extensive library of movies and shows, featuring a
@@ -37,7 +37,7 @@ function Plan() {
                     <p className="mx-2">/</p>
                     <p className="text-[18px]">month</p>
                   </div>
-                  <div className="flex gap-4 mt-10">
+                  <div className="flex gap-4 mt-10 flex-wrap">
                     <Link href={"/pricing"}>
                       <Button variant="secondary">Start Free Trial</Button>
                     </Link>
@@ -46,7 +46,7 @@ function Plan() {
                     </Link>
                   </div>
                 </div>
-                <div className="p-12 bg-[#343434] rounded-lg border border-bordercolor">
+                <div className="p-12 rounded-lg border">
                   <h4>Standard Plan</h4>
                   <p className="mt-4 text-[18px]">
                     Access to a wider selection of movies and shows, including
@@ -57,7 +57,7 @@ function Plan() {
                     <p className="mx-2">/</p>
                     <p className="text-[18px]">month</p>
                   </div>
-                  <div className="flex gap-4 mt-10">
+                  <div className="flex gap-4 mt-10 flex-wrap">
                     <Link href={"/pricing"}>
                       <Button variant="secondary">Start Free Trial</Button>
                     </Link>
@@ -66,7 +66,7 @@ function Plan() {
                     </Link>
                   </div>
                 </div>
-                <div className="p-12 bg-[#343434] rounded-lg border border-bordercolor">
+                <div className="p-12 rounded-lg border">
                   <h4>Premium Plan</h4>
                   <p className="mt-4 text-[18px]">
                     Access to a widest selection of movies and shows, including
@@ -77,7 +77,7 @@ function Plan() {
                     <p className="mx-2">/</p>
                     <p className="text-[18px]">month</p>
                   </div>
-                  <div className="flex gap-4 mt-10">
+                  <div className="flex gap-4 mt-10 flex-wrap">
                     <Link href={"/pricing"}>
                       <Button variant="secondary">Start Free Trial</Button>
                     </Link>
@@ -90,7 +90,7 @@ function Plan() {
             </TabsContent>
             <TabsContent value="yearly" className="mt-20">
               <div className="grid grid-cols-3 gap-8">
-                <div className="p-12 bg-[#343434] rounded-lg border border-bordercolor">
+                <div className="p-12 rounded-lg border">
                   <h4>Basic Plan +</h4>
                   <p className="mt-4 text-[18px]">
                     Enjoy an extensive library of movies and shows, featuring a
@@ -101,7 +101,7 @@ function Plan() {
                     <p className="mx-2">/</p>
                     <p className="text-[18px]">month</p>
                   </div>
-                  <div className="flex gap-4 mt-10">
+                  <div className="flex gap-4 mt-10 flex-wrap">
                     <Link href={"/pricing"}>
                       <Button variant="secondary">Start Free Trial</Button>
                     </Link>
@@ -110,7 +110,7 @@ function Plan() {
                     </Link>
                   </div>
                 </div>
-                <div className="p-12 bg-[#343434] rounded-lg border border-bordercolor">
+                <div className="p-12 rounded-lg border">
                   <h4>Standard Plan +</h4>
                   <p className="mt-4 text-[18px]">
                     Access to a wider selection of movies and shows, including
@@ -121,7 +121,7 @@ function Plan() {
                     <p className="mx-2">/</p>
                     <p className="text-[18px]">month</p>
                   </div>
-                  <div className="flex gap-4 mt-10">
+                  <div className="flex gap-4 mt-10 flex-wrap">
                     <Link href={"/pricing"}>
                       <Button variant="secondary">Start Free Trial</Button>
                     </Link>
@@ -130,7 +130,7 @@ function Plan() {
                     </Link>
                   </div>
                 </div>
-                <div className="p-12 bg-[#343434] rounded-lg border border-bordercolor">
+                <div className="p-12 rounded-lg border">
                   <h4>Premium Plan +</h4>
                   <p className="mt-4 text-[18px]">
                     Access to a widest selection of movies and shows, including
@@ -141,7 +141,7 @@ function Plan() {
                     <p className="mx-2">/</p>
                     <p className="text-[18px]">month</p>
                   </div>
-                  <div className="flex gap-4 mt-10">
+                  <div className="flex gap-4 mt-10 flex-wrap">
                     <Link href={"/pricing"}>
                       <Button variant="secondary">Start Free Trial</Button>
                     </Link>

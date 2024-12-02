@@ -3,9 +3,9 @@ import { Social } from "../Social/Social";
 
 function Footer() {
   return (
-    <footer className="bg-[#0F0F0F] py-[128px]">
+    <footer className="bg-foreground border-t py-[128px]">
       <div className="container mx-auto">
-        <div className="grid grid-cols-6">
+        <div className="grid grid-cols-0 2xl:grid-cols-6">
           <div>
             <h5 className="mb-4">Home</h5>
             <p className="mb-4">Categories</p>
@@ -39,8 +39,8 @@ function Footer() {
           <Social />
         </div>
 
-        <div className="flex justify-between pt-8">
-          <p className="mb-4">@2023 streamvib, All Rights Reserved</p>
+        <div className="grid grid-cols-1 2xl:grid-cols-2 justify-between pt-8">
+          <p className="mb-4">@2024 streamvib, All Rights Reserved</p>
           <ul className="flex gap-4">
             <li>Terms of Use</li>
             <li>Privacy Policy</li>
