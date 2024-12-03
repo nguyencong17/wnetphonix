@@ -8,8 +8,8 @@ import sv6 from "../../../public/services/sv-6.svg";
 function Services(props) {
   return (
     <div className="service relative">
-      <div className="container mx-auto px-4 py-[96px] lg:py-[128px]">
-        <div className="max-w-[1100px]">
+      <div className="container mx-auto px-4 py-[64px] lg:py-[128px]">
+        <div className="max-w-[1100px] text-center lg:text-left">
           <h3 className="mb-4 text-[28px] lg:text-[36px]">
             We Provide you streaming experience across various devices.
           </h3>
@@ -20,8 +20,8 @@ function Services(props) {
             entertainment.
           </p>
         </div>
-        <div className="grid grid- cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
-          <div className="flex gap-8 p-[40px] border rounded-lg bg-secondary items-start">
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+          <div className="flex gap-8 p-[24px] flex-col lg:flex-row lg:p-[40px] border rounded-lg items-center lg:items-start text-center lg:text-left">
             <Image src={sv1} alt="sv1" width={72} height={72} />
             <div className="flex-1">
               <h5 className="mb-2">Smartphones</h5>
@@ -32,7 +32,7 @@ function Services(props) {
               </p>
             </div>
           </div>
-          <div className="flex gap-8 p-[40px] border rounded-lg bg-secondary items-start">
+          <div className="flex gap-8 p-[24px] flex-col lg:flex-row lg:p-[40px] border rounded-lg items-center lg:items-start text-center lg:text-left">
             <Image src={sv2} alt="sv2" width={72} height={72} />
             <div className="flex-1">
               <h5 className="mb-2">Tablet</h5>
@@ -43,7 +43,7 @@ function Services(props) {
               </p>
             </div>
           </div>
-          <div className="flex gap-8 p-[40px] border rounded-lg bg-secondary items-start">
+          <div className="flex gap-8 p-[24px] flex-col lg:flex-row lg:p-[40px] border rounded-lg items-center lg:items-start text-center lg:text-left">
             <Image src={sv3} alt="sv3" width={72} height={72} />
             <div className="flex-1">
               <h5 className="mb-2">Smart TV</h5>
@@ -54,7 +54,7 @@ function Services(props) {
               </p>
             </div>
           </div>
-          <div className="flex gap-8 p-[40px] border rounded-lg bg-secondary items-start">
+          <div className="flex gap-8 p-[24px] flex-col lg:flex-row lg:p-[40px] border rounded-lg items-center lg:items-start text-center lg:text-left">
             <Image src={sv4} alt="sv4" width={72} height={72} />
             <div className="flex-1">
               <h5 className="mb-2">Laptops</h5>
@@ -65,7 +65,7 @@ function Services(props) {
               </p>
             </div>
           </div>
-          <div className="flex gap-8 p-[40px] border rounded-lg bg-secondary items-start">
+          <div className="flex gap-8 p-[24px] flex-col lg:flex-row lg:p-[40px] border rounded-lg items-center lg:items-start text-center lg:text-left">
             <Image src={sv5} alt="sv5" width={72} height={72} />
             <div className="flex-1">
               <h5 className="mb-2">Gaming Consoles</h5>
@@ -76,7 +76,7 @@ function Services(props) {
               </p>
             </div>
           </div>
-          <div className="flex gap-8 p-[40px] border rounded-lg bg-secondary items-start">
+          <div className="flex gap-8 p-[24px] flex-col lg:flex-row lg:p-[40px] border rounded-lg items-center lg:items-start text-center lg:text-left">
             <Image src={sv6} alt="sv6" width={72} height={72} />
             <div className="flex-1">
               <h5 className="mb-2">VR Headsets</h5>

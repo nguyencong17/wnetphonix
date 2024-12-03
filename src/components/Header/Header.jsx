@@ -173,7 +173,7 @@ export const Header = () => {
               </svg>
             </div>
 
-            <div className="flex flex-col items-center text-[12px]">
+            <div className="hidden lg:flex flex-col items-center text-[12px]">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -191,7 +191,7 @@ export const Header = () => {
               <p>Language</p>
             </div>
 
-            <div className="flex flex-col items-center text-[12px]">
+            <div className="hidden lg:flex flex-col items-center text-[12px]">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
