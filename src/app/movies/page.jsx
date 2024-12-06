@@ -74,7 +74,7 @@ function Movies() {
         <SwiperCoverflow listmovie={updating} loading={loading} />
       </div>
 
-      <div className="container mt-[-200px] relative z-10">
+      <div className="container lg:mt-[-200px] relative z-10">
         <div className="flex flex-col gap-[50px]">
           <ListMovieSlider
             listmovie={action}

@@ -29,7 +29,7 @@ export const ListMovieSlider = (props) => {
         className="inline-flex items-center mb-4 cursor-pointer text-white gap-4"
         href={`/list/${slug}`}
       >
-        <h2 className="text-[36px]">{label}</h2>
+        <h2 className="text-[24px] lg:text-[36px]">{label}</h2>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
@@ -48,8 +48,22 @@ export const ListMovieSlider = (props) => {
 
       <Swiper
         // onSwiper={setSwiperRef}
-        slidesPerView={7}
+        slidesPerView={2}
         spaceBetween={16}
+        breakpoints={{
+          576: {
+            slidesPerView: 3,
+          },
+          992: {
+            slidesPerView: 4,
+          },
+          1024: {
+            slidesPerView: 5,
+          },
+          1400: {
+            slidesPerView: 7,
+          },
+        }}
         modules={[Navigation, Pagination]}
         pagination={pagination}
         navigation={{
@@ -77,7 +91,7 @@ export const ListMovieSlider = (props) => {
           : listmovie &&
             listmovie.map((movie, index) => (
               <SwiperSlide key={index}>
-                <Card movie={movie} />
+                <Card movie={movie}  className="max-w-full"/>
               </SwiperSlide>
             ))}
       </Swiper>

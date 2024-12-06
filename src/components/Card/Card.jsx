@@ -20,7 +20,7 @@ export const Card = (props) => {
               alt={movie.name}
               width={400}
               height={350}
-              className="rounded-lg  w-full max-h-[300px] object-cover z-1"
+              className="rounded-lg  w-full h-[300px] object-cover z-1"
             />
             
             <div className=" mt-4 text-white rounded-b-lg flex-1 gap-6 justify-between h-full">
