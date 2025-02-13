@@ -50,7 +50,7 @@ export default function SwiperCoverflow(props) {
           prevEl: ".coverflow-arrow-right",
         }}
         modules={[Autoplay, EffectCoverflow, Pagination, Navigation]}
-        className="swiper-covereffect h-[800px]"
+        className="swiper-covereffect"
         loop={true}
         autoplay={{
           delay: 2500,
@@ -73,7 +73,7 @@ export default function SwiperCoverflow(props) {
             listmovie.map((item, index) => (
               <SwiperSlide key={index}>
                 <Link href={`/movie/${item.slug}`}>
-                  <div className="rounded-[8px] h-full">
+                  <div className="rounded-[8px] overflow-hidden h-full">
                     <div className="w-full h-full flex flex-col relative">
                       <Image
                         src={`${item.thumb_url}` || "/placeholder.png"}
@@ -87,7 +87,7 @@ export default function SwiperCoverflow(props) {
               </SwiperSlide>
             ))}
       </Swiper>
-      <div className="coverflow-arrow-left arrow absolute top-[30%] left-[64px] z-10 cursor-pointer bg-primary rounded-full p-4">
+      <div className="hidden 2xl:block coverflow-arrow-left arrow absolute top-[30%] left-[64px] z-10 cursor-pointer bg-primary rounded-full p-4">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
@@ -103,7 +103,7 @@ export default function SwiperCoverflow(props) {
           />
         </svg>
       </div>
-      <div className="coverflow-arrow-right arrow absolute top-[30%] right-[64px] z-10 cursor-pointer bg-primary rounded-full p-4">
+      <div className="hidden 2xl:block coverflow-arrow-right arrow absolute top-[30%] right-[64px] z-10 cursor-pointer bg-primary rounded-full p-4">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"

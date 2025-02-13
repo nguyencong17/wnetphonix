@@ -70,11 +70,11 @@ function Movies() {
   return (
     <>
       {/* <Slide /> */}
-      <div className="container mt-[100px] !pl-[256px] !pr-[256px] relative overflow-hidden">
+      <div className="container my-[46px] 2xl:mt-[100px] 2xl:!pl-[256px] 2xl:!pr-[256px] relative">
         <SwiperCoverflow listmovie={updating} loading={loading} />
       </div>
 
-      <div className="container lg:mt-[-200px] relative z-10">
+      <div className="container relative z-10">
         <div className="flex flex-col gap-[50px]">
           <ListMovieSlider
             listmovie={action}

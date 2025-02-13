@@ -5,8 +5,18 @@
 .swiper-covereffect .swiper-slide {
   background-position: center;
   background-size: cover;
-  width: 370px;
-  height: 490px;
+  width: 200px;
+  aspect-ratio: 4/6;
+
+  @media screen and (min-width: 768px) {
+    width: 300px;
+  }
+
+  @media screen and (min-width: 1800px) {
+    width: 370px;
+    aspect-ratio: unset;
+    height: 490px;
+  }
 }
 
 .swiper-covereffect .swiper-slide img {
@@ -16,6 +26,9 @@
   height: 100%;
   object-fit: cover;
   object-position: top;
-  -webkit-box-reflect: below 1px linear-gradient(transparent, transparent , #0002 , #0004);
+
+  /* @media screen and (min-width: 1800px) {
+    -webkit-box-reflect: below 1px linear-gradient(transparent, transparent , #0002 , #0004);
+  } */
 }
 
