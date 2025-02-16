@@ -28,7 +28,7 @@ function Movies() {
     async function fetchData() {
       try {
         // Get updating movies
-        const updatingmovies = await movieAPIs.getUpdatingMovies(1);
+        const moviesbyyear = await movieAPIs.getMovieByYear(2025,1);
 
         // Category: Action
         const action = await movieAPIs.getMoviesByCatgory("hanh-dong", 1);
@@ -56,7 +56,7 @@ function Movies() {
         setKorea(korea.data.items);
         setUsa(usa.data.items);
         setVietnam(vietnam.data.items);
-        dispatch(getUpdatingList(updatingmovies.data.items));
+        dispatch(getUpdatingList(moviesbyyear.data.items));
         setLoading(false);
       } catch (error) {
         console.log(error);
@@ -65,16 +65,16 @@ function Movies() {
     fetchData();
   }, []);
 
-  const updating = useSelector(getUpdatingListSelector);
+  const moviesbyyear = useSelector(getUpdatingListSelector);
 
   return (
     <>
       {/* <Slide /> */}
       <div className="container my-[46px] 2xl:mt-[100px] 2xl:!pl-[256px] 2xl:!pr-[256px] relative">
-        <SwiperCoverflow listmovie={updating} loading={loading} />
+        <SwiperCoverflow listmovie={moviesbyyear} loading={loading} />
       </div>
 
-      <div className="container relative z-10">
+      <div className="container relative z-5">
         <div className="flex flex-col gap-[50px]">
           <ListMovieSlider
             listmovie={action}

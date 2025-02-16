@@ -1,13 +1,14 @@
+
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { useState, useEffect } from "react";
+import movieAPIs from "@/apis/movieAPIs";
 import { Card } from "@/components/Card/Card";
 import { useInView } from "react-intersection-observer";
 import axios from "axios";
 
-function List(props) {
-  const { params } = props;
-  const slug = params.slug;
-  const [movies, setMovies] = useState([]); // Danh sách phim
+function Tvshows() {
+  // danh sach phim bo noi bat
+  const [listtvshows, setListtvshows] = useState([]);
   const [currentPage, setCurrentPage] = useState(1); // Trang hiện tại
   const [loading, setLoading] = useState(false); // Trạng thái tải dữ liệu
   const [hasMore, setHasMore] = useState(true); // Còn dữ liệu không?
@@ -17,20 +18,22 @@ function List(props) {
     threshold: 0.05, // Kích hoạt khi phần tử xuất hiện 10% trên màn hình
   });
 
-  // Hàm Fetch API
-  const fetchMovies = async (page) => {
+  const fetchTvshows = async (page) => {
     setLoading(true);
     try {
-      const response = await axios.get(
-        `https://phim.nguonc.com/api/films/the-loai/${slug}?page=${page}`
+      const listtvshows = await axios.get(
+        `https://phim.nguonc.com/api/films/danh-sach/tv-shows?page=${page}`
       );
 
-      if (response.data.status === "success") {
+      if (listtvshows.data.status === "success") {
         // const intersection = array1.filter(obj1 =>
         //   array2.some(obj2 => obj1.id === obj2.id)
         // );
-        setMovies((prevMovies) => [...prevMovies, ...response.data.items]);
-        setHasMore(page < response.data.paginate.total_page);
+        setListtvshows((prevMovies) => [
+          ...prevMovies,
+          ...listtvshows.data.items,
+        ]);
+        setHasMore(page < listtvshows.data.paginate.total_page);
       }
     } catch (error) {
       console.error("Error fetching movies:", error);
@@ -39,10 +42,10 @@ function List(props) {
     }
   };
 
-  // Gọi API khi component mount hoặc currentPage thay đổi
+  // // Gọi API khi component mount hoặc currentPage thay đổi
   useEffect(() => {
     if (hasMore && currentPage > 1) {
-      fetchMovies(currentPage);
+      fetchTvshows(currentPage);
     }
   }, [currentPage]);
 
@@ -53,16 +56,11 @@ function List(props) {
     }
   }, [inView, hasMore, loading]);
 
-  // Nếu slug chưa sẵn sàng, hiển thị loading
-  // if (!slug) {
-  //   return <p>Loading...</p>;
-  // }
-
   return (
     <div className="py-[32px] lg:py-[64px]">
       <div className="container flex flex-col items-end">
         <div className="w-full grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 xl:grid-cols-6 2xl:grid-cols-7 gap-4">
-          {movies.map((item, index) => (
+          {listtvshows.map((item, index) => (
             <Card key={index} movie={item} />
           ))}
         </div>
@@ -87,4 +85,4 @@ function List(props) {
   );
 }
 
-export default List;
+export default Tvshows;
