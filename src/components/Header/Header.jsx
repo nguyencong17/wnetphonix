@@ -94,6 +94,7 @@ export const Header = () => {
     };
   }, []);
 
+  // handle toggle dropdown
   const handleToggleDropdownGenres = (e) => {
     dropdownCountryRef.current.classList.add("hidden"); // Ẩn dropdown quốc gia
     dropdownGenresRef.current.classList.toggle("hidden"); // Chuyển đổi dropdown thể loại
@@ -102,6 +103,11 @@ export const Header = () => {
   const handleToggleDropdownCountry = (e) => {
     dropdownGenresRef.current.classList.add("hidden"); // Ẩn dropdown thể loại
     dropdownCountryRef.current.classList.toggle("hidden"); // Chuyển đổi dropdown quốc gia
+  };
+
+  // handle when click menu on mobile
+  const handleCloseToggleMenu = () => {
+    setIsOpen(false);
   };
 
   return (
@@ -242,6 +248,7 @@ export const Header = () => {
                   className={`p-4 ${
                     pathname === "/" ? "active text-white !bg-background" : ""
                   }`}
+                  onClick={handleCloseToggleMenu}
                 >
                   <Link href={"/"}>Trang Chủ</Link>
                 </li>
@@ -251,17 +258,9 @@ export const Header = () => {
                       ? "active text-white !bg-background"
                       : ""
                   }`}
+                  onClick={handleCloseToggleMenu}
                 >
                   <Link href={"/movies"}>Phim HOT</Link>
-                </li>
-                <li
-                  className={`p-4 ${
-                    pathname === "/tvshows"
-                      ? "active text-white !bg-background"
-                      : ""
-                  }`}
-                >
-                  <Link href={"/tvshows"}>TV shows</Link>
                 </li>
                 <li
                   className={`p-4 ${
@@ -269,8 +268,29 @@ export const Header = () => {
                       ? "active text-white !bg-background"
                       : ""
                   }`}
+                  onClick={handleCloseToggleMenu}
                 >
                   <Link href={"/tvseries"}>Phim bộ</Link>
+                </li>
+                <li
+                  className={`p-4 ${
+                    pathname === "/films"
+                      ? "active text-white !bg-background"
+                      : ""
+                  }`}
+                  onClick={handleCloseToggleMenu}
+                >
+                  <Link href={"/films"}>Phim lẻ</Link>
+                </li>
+                <li
+                  className={`p-4 ${
+                    pathname === "/tvshows"
+                      ? "active text-white !bg-background"
+                      : ""
+                  }`}
+                  onClick={handleCloseToggleMenu}
+                >
+                  <Link href={"/tvshows"}>TV shows</Link>
                 </li>
                 <li
                   className={`p-4 ${
@@ -278,17 +298,19 @@ export const Header = () => {
                       ? "active text-white !bg-background"
                       : ""
                   }`}
+                  onClick={handleCloseToggleMenu}
                 >
                   <Link href={"/cartoons"}>Hoạt hình</Link>
                 </li>
                 <li
                   className={`p-4 ${
-                    pathname === "/cinemas"
+                    pathname === "/upcommings"
                       ? "active text-white !bg-background"
                       : ""
                   }`}
+                  onClick={handleCloseToggleMenu}
                 >
-                  <Link href={"/cinemas"}>Chiếu rạp</Link>
+                  <Link href={"/upcommings"}>Phim đang chiếu</Link>
                 </li>
                 <li
                   className={`p-4 flex gap-2 cursor-pointer relative`}
@@ -298,15 +320,16 @@ export const Header = () => {
                   <ChevronDownIcon className="h-4 w-4" />
                   <ul
                     ref={dropdownGenresRef}
-                    className="absolute top-[46px] !w-[280px] h-[300px] overflow-y-scroll bg-[#111] pb-4 border-b-2 border-primary z-20 rounded-lg hidden"
+                    className="absolute top-[46px] !w-[280px] h-[300px] left-[-150px] overflow-y-scroll bg-[#111] pb-4 border-b-2 border-primary z-20 rounded-lg hidden"
                   >
                     <div className="grid grid-cols-2">
                       {mygenres.map((genre) => (
                         <li
                           key={genre.id}
                           className="flex gap-2 py-2 px-4 cursor-pointer hover:bg-foreground"
+                          onClick={handleCloseToggleMenu}
                         >
-                          <Link href={`/genre/${genre.id}`}>{genre.name}</Link>
+                          <Link href={`/list/${genre.id}`}>{genre.name}</Link>
                         </li>
                       ))}
                     </div>
@@ -320,7 +343,7 @@ export const Header = () => {
                   <ChevronDownIcon className="h-4 w-4" />
                   <ul
                     ref={dropdownCountryRef}
-                    className="absolute top-[46px] left-[-150px] !w-[280px] h-[300px] overflow-y-scroll bg-[#111] pb-4 border-b-2 border-primary z-20 rounded-lg
+                    className="absolute top-[46px] !w-[280px] h-[300px] overflow-y-scroll bg-[#111] pb-4 border-b-2 border-primary z-20 rounded-lg
                   hidden"
                   >
                     <div className="grid grid-cols-2">
@@ -328,8 +351,9 @@ export const Header = () => {
                         <li
                           key={country.id}
                           className="flex gap-2 py-2 px-4 cursor-pointer hover:bg-foreground"
+                          onClick={handleCloseToggleMenu}
                         >
-                          <Link href={`/country/${country.id}`}>
+                          <Link href={`/list/${country.id}`}>
                             {country.name}
                           </Link>
                         </li>
@@ -339,12 +363,12 @@ export const Header = () => {
                 </li>
 
                 {/* Language */}
-                <li className="p-4" onClick={() => setIsOpen(false)}>
+                <li className="p-4" onClick={handleCloseToggleMenu}>
                   <p>Language</p>
                 </li>
 
                 {/* Account */}
-                <li className="p-4" onClick={() => setIsOpen(false)}>
+                <li className="p-4" onClick={handleCloseToggleMenu}>
                   <Link href={"/login"} className="">
                     <span>My Account</span>
                   </Link>
