@@ -18,6 +18,10 @@ module.exports = {
     extend: {
       screens: {
         '2xl': '1800px',
+        'xl': '1200px',
+        'lg': '992px',
+        'md': '768px',
+        'sm': '576px',
       },
       colors: {
         'bgbuttonsecondary': '#56575b',

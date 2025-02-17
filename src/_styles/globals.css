@@ -165,7 +165,6 @@ span.swiper-pagination-bullet-active{
   display: inline-block;       /* Hiển thị các phần tử theo hàng ngang */
   position: relative;
   padding: 0 10px;             /* Khoảng cách ngang cho từng phần tử */
-  font-size: 16px;
 }
 
 .info::after {
@@ -179,6 +178,15 @@ span.swiper-pagination-bullet-active{
 
 .info:last-child::after {
   content: '';                 /* Bỏ dấu gạch cho phần tử cuối */
+}
+
+.movie-format .info {
+  font-size: 12px;
+
+  @media screen and (min-width: 992px) {
+    font-size: 16px;
+    
+  }
 }
 
 .movie-format .info:first-child {
