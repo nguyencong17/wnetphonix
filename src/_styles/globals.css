@@ -223,3 +223,13 @@ span.swiper-pagination-bullet-active{
 ::-webkit-scrollbar-thumb:hover {
   background: #555; 
 }
+
+/* Footer */
+footer p,
+footer ul li {
+  font-size: .75rem;
+}
+
+footer h5 {
+  font-size: 1rem;
+}

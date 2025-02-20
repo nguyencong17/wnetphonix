@@ -243,7 +243,7 @@ export const Header = () => {
 
             {/* Menu on Mobile */}
             {isOpen && (
-              <ul className="xl:hidden border grid grid-cols-2 absolute top-[70px] left-0 right-0 rounded-lg menu max-w-full bg-[rgba(0,0,0,1)] px-4 py-0 items-center">
+              <ul className="xl:hidden border grid grid-cols-2 absolute top-[70px] left-0 right-0 rounded-lg menu max-w-full bg-[rgba(0,0,0,1)] p-4 items-center">
                 <li
                   className={`p-4 ${
                     pathname === "/" ? "active text-white !bg-background" : ""
