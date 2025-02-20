@@ -112,7 +112,7 @@ export const Header = () => {
 
   return (
     <header
-      className={`bg-foreground top-0 left-0 right-0 z-10 text-[12px] 2xl:text-[14px] ${
+      className={`bg-foreground top-0 left-0 right-0 z-10 text-[12px] 2xl:text-[14px] p-2 ${
         pathname === "/" ? "fixed" : ""
       }`}
     >
