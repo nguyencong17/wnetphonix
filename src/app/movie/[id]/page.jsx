@@ -10,6 +10,7 @@ import Ads from "../../../../public/ads.jpg";
 import {
   BookmarkIcon,
   CursorArrowRippleIcon,
+  PlayIcon,
   ShareIcon,
 } from "@heroicons/react/24/solid";
 import { PLACEHOLDER, PLACEHOLDER_16_9 } from "@/utils/constants";
@@ -103,7 +104,7 @@ const DetailMovie = ({ params }) => {
                     <p className="info">{movie.current_episode}</p>
                   </div>
 
-                  <div className="flex mb-3 lg:mb-5 !text-[12px] lg:text-[16px]">
+                  <div className="flex mb-3 lg:mb-5">
                     <p className="info !pl-0 ">{movie.language}</p>
                     <p className="info">Trọn bộ {movie.total_episodes} tập</p>
                   </div>
@@ -144,17 +145,21 @@ const DetailMovie = ({ params }) => {
 
                   {/* Action */}
                   <div className="flex gap-2 lg:before:gap-4 mb-3 lg:mb-0">
+                    <Link href={`/watch`} className="font-medium flex items-center space-x-2 hover:text-white bg-primary rounded-[4px] p-2 lg:p-4 text-[12px] lg:text-[16px] text-white">
+                      <PlayIcon className="w-4 h-4 mr-2" />
+                      Chiếu phát
+                    </Link>
                     <button className="font-medium flex items-center space-x-2 hover:text-white bg-[#535050] rounded-[4px] p-2 lg:p-4 text-[12px] lg:text-[16px] text-white">
                       <ShareIcon className="w-4 h-4 mr-2" />
-                      Share
+                      Chia sẻ
                     </button>
                     <button className="font-medium flex items-center space-x-2 hover:text-white bg-[#535050] rounded-[4px] p-2 lg:p-4 text-[12px] lg:text-[16px] text-white">
                       <CursorArrowRippleIcon className="w-4 h-4 mr-2" />
-                      APP
+                      Ứng dụng
                     </button>
                     <button className="font-medium flex items-center space-x-2 hover:text-white bg-[#535050] rounded-[4px] p-2 lg:p-4 text-[12px] lg:text-[16px] text-white">
                       <BookmarkIcon className="w-4 h-4 mr-2" />
-                      Bookmark
+                      Thêm vào thư viện
                     </button>
                   </div>
                 </div>
@@ -178,7 +183,9 @@ const DetailMovie = ({ params }) => {
             <div className="mt-4 lg:mt-8">
               {/* Episodes */}
               <div className="w-full gap-4">
-                <h4 className="mb-2 lg:mb-4 text-[15px] 2xl:text-[16px]">Episodes</h4>
+                <h4 className="mb-2 lg:mb-4 text-[15px] 2xl:text-[20px]">
+                  Tập phim
+                </h4>
                 <div className="">
                   {episodes &&
                     episodes.map((server, index) => (

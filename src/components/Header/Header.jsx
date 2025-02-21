@@ -370,7 +370,7 @@ export const Header = () => {
                 {/* Account */}
                 <li className="p-4" onClick={handleCloseToggleMenu}>
                   <Link href={"/login"} className="">
-                    <span>My Account</span>
+                    <span className="text-[12px]">Tài khoản</span>
                   </Link>
                 </li>
               </ul>
@@ -454,7 +454,7 @@ export const Header = () => {
                   />
                 </svg>
 
-                <p>My Account</p>
+                <p className="text-[12px]">Tài khoản</p>
               </Link>
             </div>
 
