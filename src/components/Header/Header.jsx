@@ -201,7 +201,7 @@ export const Header = () => {
                 <ChevronDownIcon className="h-4 w-4" />
                 <ul
                   ref={dropdownGenresRef}
-                  className="absolute top-[53px] left-0 shadow-md bg-[#111111] w-[700px] pb-4 border-b-2 border-primary
+                  className="absolute top-[53px] left-0 xl:left-[-200px] shadow-md bg-[#111111] w-[700px] pb-4 border-b-2 border-primary
                   hidden"
                 >
                   <div className="grid grid-cols-4">
@@ -224,7 +224,7 @@ export const Header = () => {
                 <ChevronDownIcon className="h-4 w-4" />
                 <ul
                   ref={dropdownCountryRef}
-                  className="absolute top-[53px] left-0 shadow-md bg-[#111111] w-[700px] pb-4 border-b-2 border-primary
+                  className="absolute top-[53px] left-0 xl:left-[-300px] shadow-md bg-[#111111] w-[700px] pb-4 border-b-2 border-primary
                   hidden"
                 >
                   <div className="grid grid-cols-4">

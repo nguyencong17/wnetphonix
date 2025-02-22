@@ -104,7 +104,7 @@ const DetailMovie = ({ params }) => {
                     <p className="info">{movie.current_episode}</p>
                   </div>
 
-                  <div className="flex mb-3 lg:mb-5">
+                  <div className="flex mb-3 lg:mb-5 movie-genre">
                     <p className="info !pl-0 ">{movie.language}</p>
                     <p className="info">Trọn bộ {movie.total_episodes} tập</p>
                   </div>
@@ -144,8 +144,8 @@ const DetailMovie = ({ params }) => {
                   </p>
 
                   {/* Action */}
-                  <div className="flex gap-2 lg:before:gap-4 mb-3 lg:mb-0">
-                    <Link href={`/watch`} className="font-medium flex items-center space-x-2 hover:text-white bg-primary rounded-[4px] p-2 lg:p-4 text-[12px] lg:text-[16px] text-white">
+                  <div className="flex flex-wrap gap-2 lg:before:gap-4 mb-3 lg:mb-0">
+                    <Link href={`/#`} className="font-medium flex items-center space-x-2 hover:text-white bg-primary rounded-[4px] p-2 lg:p-4 text-[12px] lg:text-[16px] text-white">
                       <PlayIcon className="w-4 h-4 mr-2" />
                       Chiếu phát
                     </Link>

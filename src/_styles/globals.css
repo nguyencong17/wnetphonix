@@ -180,7 +180,8 @@ span.swiper-pagination-bullet-active{
   content: '';                 /* Bỏ dấu gạch cho phần tử cuối */
 }
 
-.movie-format .info {
+.movie-format .info,
+.movie-genre .info {
   font-size: 12px;
 
   @media screen and (min-width: 992px) {
