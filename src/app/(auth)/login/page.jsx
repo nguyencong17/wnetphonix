@@ -1,81 +1,96 @@
-import React from "react";
+"use client";
+import { useState, useContext, useEffect } from "react";
+import AuthContext from "@/components/context/AuthContext";
+import Image from "next/image";
+import LoginImage from "../../../../public/login-bg.jpg"; // Đường dẫn đến hình ảnh
+import { Input } from "@/components/ui/input";
+import Link from "next/link";
+import { useToast } from "@/components/ui/use-toast";
+import { Toaster } from "@/components/ui/toaster";
 
 function LoginPage() {
+  const { login } = useContext(AuthContext);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const { toast } = useToast();
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    login(email, password);
+    toast({
+      title: "Success",
+      description: "Bạn đã đăng nhập thành công",
+      status: "success",
+      duration: 5000,
+      className: "bg-green-500 text-[#141414] border-0",
+    });
+  };
+
   return (
-    <div>
-      <div class="flex items-center justify-center min-h-screen">
-        <div class="custom-bg p-8 rounded-lg custom-shadow max-w-md w-full bg-foreground border">
-          <div class="flex justify-center mb-4">
-            <div class="bg-gray-200 p-4 rounded-full">
-              <i class="fas fa-sign-in-alt text-2xl"></i>
-            </div>
-          </div>
-          <h2 class="text-2xl font-semibold text-center mb-2">
-            Sign in with email
-          </h2>
-          <p class="text-center text-gray-600 mb-6">
-            Make a new doc to bring your words, data, and teams together. For
-            free
-          </p>
-          <form>
-            <div class="mb-4 relative">
-              <i class="fas fa-envelope custom-input-icon"></i>
-              <input
-                class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 custom-input"
-                placeholder="Email"
-                type="email"
-              />
-            </div>
-            <div class="mb-4 relative">
-              <i class="fas fa-lock custom-input-icon"></i>
-              <input
-                class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 custom-input"
-                placeholder="Password"
-                type="password"
-              />
-              <i class="fas fa-eye-slash absolute right-3 top-3 text-gray-500 cursor-pointer"></i>
-            </div>
-            <div class="flex justify-between items-center mb-6">
-              <a class="text-sm text-blue-500" href="#">
-                Forgot password?
-              </a>
-            </div>
-            <button class="w-full bg-black text-white py-2 rounded-lg hover:bg-gray-800 transition duration-200">
-              Get Started
-            </button>
-          </form>
-          <div class="text-center my-4 text-gray-500">Or sign in with</div>
-          <div class="flex justify-center space-x-4">
-            <button class="bg-white border rounded-full p-2">
-              <img
-                alt="Google logo"
-                class="h-6 w-6"
-                height="24"
-                src="https://storage.googleapis.com/a1aa/image/yi44IaPJhG7HMtenKi8575ykuMRexhH91TRN4e70T9Y3LLOoA.jpg"
-                width="24"
-              />
-            </button>
-            <button class="bg-white border rounded-full p-2">
-              <img
-                alt="Facebook logo"
-                class="h-6 w-6"
-                height="24"
-                src="https://storage.googleapis.com/a1aa/image/XapPKQ0G7eTmWiax9nyTnG591SSEYk6XIejFj3Yt58m8lFHUA.jpg"
-                width="24"
-              />
-            </button>
-            <button class="bg-white border rounded-full p-2">
-              <img
-                alt="Apple logo"
-                class="h-6 w-6"
-                height="24"
-                src="https://storage.googleapis.com/a1aa/image/kKcrSWEQtMqvGNOCTJd2TaVbuL8DShLVkNVvCYVFEBNeyiDKA.jpg"
-                width="24"
-              />
-            </button>
+    <div className="relative min-h-screen">
+      <Image
+        src={LoginImage}
+        alt="Background Image"
+        className="absolute inset-0 object-cover w-full h-full opacity-50"
+        fill
+        priority
+      />
+      <div className="absolute  top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+        <div className="px-8  py-16 rounded-lg max-w-md w-full bg-[rgba(0,0,0,0.3)] relative">
+          <div className="absolute top-0 left-0 right-0 bottom-0 z-10 backdrop-blur-[3px] rounded-lg"></div>
+          <div className="relative top-0 left-0 right-0 bottom-0 z-20">
+            <h2 className="text-3xl font-semibold text-center mb-2">
+              WnetPhonix
+            </h2>
+            <p className="text-center text-gray-600 mb-6">
+              Kho phim bất tận, trải nghiệm điện ảnh sống động từng khoảnh khắc
+            </p>
+            <form onSubmit={handleSubmit} className="text-center">
+              <div className="mb-4 relative">
+                <i className="fas fa-envelope custom-input-icon"></i>
+                <Input
+                  className="w-full focus:outline-transparent focus:ring-transparent focus:border-primary focus:text-white"
+                  placeholder="Email"
+                  type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  required
+                />
+              </div>
+              <div className="mb-4 relative">
+                <i className="fas fa-lock custom-input-icon"></i>
+                <Input
+                  className="w-full focus:outline-transparent focus:ring-transparent focus:border-primary focus:text-white"
+                  placeholder="Password"
+                  type="password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  required
+                />
+                <i className="fas fa-eye-slash absolute right-3 top-3 text-gray-500 cursor-pointer"></i>
+              </div>
+              <div className="flex justify-between items-center mb-6">
+                <a className="text-sm text-white hover:underline" href="#">
+                  Quên mật khẩu?
+                </a>
+                <Link
+                  className="text-sm text-white hover:underline"
+                  href="/register"
+                >
+                  Bạn chưa có tài khoản?
+                </Link>
+              </div>
+              <button
+                className="bg-primary text-white px-8 py-2 h-[52px] rounded-lg hover:bg-gray-800 transition duration-200"
+                type="submit"
+              >
+                Đăng nhập
+              </button>
+            </form>
           </div>
         </div>
       </div>
+      <Toaster></Toaster>
     </div>
   );
 }
