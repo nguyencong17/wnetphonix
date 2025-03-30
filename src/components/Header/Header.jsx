@@ -110,7 +110,7 @@ export const Header = () => {
     setIsOpen(false);
   };
 
-  const accessToken = localStorage.getItem("token");
+  const accessToken = typeof window !== "undefined" ? localStorage.getItem("token") : null;
 
   return (
     <header

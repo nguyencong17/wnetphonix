@@ -9,11 +9,13 @@ function Logout() {
   const { toast } = useToast();
   const { logout } = useContext(AuthContext);
   const router = useRouter(); // Khởi tạo useRouter
-  const accessToken = localStorage.getItem("token");
 
   const handleLogout = () => {
     // Xóa token khỏi localStorage
-    localStorage.removeItem("token");
+    // localStorage.removeItem("token");
+    if (typeof window !== "undefined") {
+      localStorage.removeItem("token");
+    }
 
     logout(); // Gọi hàm logout từ AuthContext
 
