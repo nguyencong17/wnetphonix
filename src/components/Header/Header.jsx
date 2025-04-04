@@ -13,6 +13,7 @@ import movieAPIs from "@/apis/movieAPIs";
 import { useRouter } from "next/navigation";
 import { Menu, X } from "lucide-react";
 import { mycountry, mygenres } from "@/apis/mydata";
+import { useDebounce } from "@/hooks/useDebounce";
 
 export const Header = () => {
   // Get current pathname
@@ -31,10 +32,7 @@ export const Header = () => {
 
   const [isOpen, setIsOpen] = useState(false);
 
-  // Handle when user type in search input
-  const handleChange = (e) => {
-    setSearchTerm(e.target.value);
-  };
+  const debouncedQuery = useDebounce(searchTerm, 500);
 
   // Handle when user submit search form
   const handleSubmit = async (e) => {
@@ -56,6 +54,7 @@ export const Header = () => {
 
   // Search movie
   useEffect(() => {
+    if (!debouncedQuery) return;
     const searchMovie = async () => {
       if (searchTerm.trim()) {
         try {
@@ -69,7 +68,7 @@ export const Header = () => {
     };
 
     searchMovie();
-  }, [searchTerm]);
+  }, [debouncedQuery]);
 
   // Close dropdown when click outside
   useEffect(() => {
@@ -387,7 +386,7 @@ export const Header = () => {
                   type="text"
                   placeholder="Dead or Alive"
                   className="bg-[rgba(255,255,255,0.2)] text-[rgba(255,255,255,0.6)] w-[15rem] h-[36px] border rounded-[8px] relative p-3 outline-none"
-                  onChange={handleChange}
+                  onChange={(e) => setSearchTerm(e.target.value)}
                   value={searchTerm}
                 />
                 <button type="submit" className="absolute z-2 right-[10px]">
