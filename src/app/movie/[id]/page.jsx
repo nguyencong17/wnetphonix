@@ -201,7 +201,7 @@ const DetailMovie = ({ params }) => {
                                 target="_blank"
                                 rel="noopener noreferrer"
                               >
-                                <div className="p-2 lg:p-4 bg-[rgba(255,255,255,0.2)] text-[12px] lg:text-[16px] rounded-sm text-white">
+                                <div className="p-2 lg:p-4 bg-[rgba(255,255,255,0.2)] text-[12px] lg:text-[16px] rounded-sm text-white hover:bg-primary">
                                   Tập {episode.name}
                                 </div>
                               </a>
