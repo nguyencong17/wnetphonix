@@ -1,38 +1,41 @@
-import { API_KEY } from "@/utils/constants";
+// src/apis/movieAPIs.js
 import { axiosClient } from "./axiosClient";
 
-
 const movieAPIs = {
-  getMovieById(slug) {
-    const url = `film/${slug}`
-    return axiosClient.get(url);
-  },
-  searchMovies(query) {
-    const url = `films/search?keyword=${query}`
-    return axiosClient.get(url);
-  },
-  getMovieByYear(year,page) {
-    const url = `films/nam-phat-hanh/${year}?page=${page}`
-    return axiosClient.get(url);
-  },
-  getMoviesByCatgory(category, page) {
-    const url = `films/the-loai/${category}?page=${page}`
-    return axiosClient.get(url);
-  },
-  getMoviesByCountry(country, page) {
-    const url = `films/quoc-gia/${country}?page=${page}`
-    return axiosClient.get(url);
-  },  
-  getMoviesBySlug(slug, page) {
-    const url = `films/the-loai/${slug}?page=${page}`
-    return axiosClient.get(url);
-  },
-  // lay danh sach phim theo loai
-  getListFilm(slug, page) {
-    const url = `films/danh-sach/${slug}?page=${page}`
+  // Lấy danh sách phim bộ/lẻ chung
+  // Slug có thể là 'phim-bo' hoặc 'phim-le'
+  getListFilm(slug, page = 1) {
+    const url = `/films/danh-sach/${slug}?page=${page}`;
     return axiosClient.get(url);
   },
 
-}
+  // Lấy chi tiết một bộ phim
+  getMovieDetail(slug) {
+    const url = `/film/${slug}`;
+    return axiosClient.get(url);
+  },
+
+  // Các hàm lọc phim
+  getMoviesByCategory(categorySlug, page = 1) {
+    const url = `/films/the-loai/${categorySlug}?page=${page}`;
+    return axiosClient.get(url);
+  },
+
+  getMoviesByCountry(countrySlug, page = 1) {
+    const url = `/films/quoc-gia/${countrySlug}?page=${page}`;
+    return axiosClient.get(url);
+  },
+
+  getMoviesByYear(year, page = 1) {
+    const url = `/films/nam-phat-hanh/${year}?page=${page}`;
+    return axiosClient.get(url);
+  },
+
+  // Tìm kiếm phim
+  searchMovies(keyword, page = 1) {
+    const url = `/films/search?keyword=${keyword}&page=${page}`;
+    return axiosClient.get(url);
+  },
+};
 
 export default movieAPIs;

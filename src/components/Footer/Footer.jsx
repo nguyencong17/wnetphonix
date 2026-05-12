@@ -1,5 +1,4 @@
 import React from "react";
-import { Social } from "../Social/Social";
 import Logo from "../../../public/logo/Logo.svg";
 import Link from "next/link";
 import Image from "next/image";
@@ -50,7 +49,6 @@ function Footer() {
             <p className="mb-4">Features</p>
           </div>
         </div>
-        <Social className="flex-1" />
         </div>
         <div className="grid grid-cols-1 2xl:grid-cols-2 justify-between pt-8">
           <p className="mb-4">@2024 streamvib, All Rights Reserved</p>

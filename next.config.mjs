@@ -22,6 +22,16 @@ const nextConfig = {
       },
     ],
   },
+  async rewrites() {
+    return [
+      {
+        // Khi bạn gọi đến đầu /api-nguonc/...
+        source: '/api-nguonc/:path*',
+        // Next.js sẽ bí mật chuyển hướng đến server này
+        destination: 'https://phim.nguonc.com/api/:path*',
+      },
+    ];
+  },
 };
 
 export default nextConfig;
