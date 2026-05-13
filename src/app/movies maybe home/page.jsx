@@ -8,7 +8,6 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 function Movies() {
-
   // Redux
   const dispatch = useDispatch();
 
@@ -27,7 +26,7 @@ function Movies() {
     async function fetchData() {
       try {
         // Get updating movies
-        const moviesbyyear = await movieAPIs.getMovieByYear(2025,1);
+        const moviesbyyear = await movieAPIs.getMovieByYear(2025, 1);
 
         // Category: Action
         const action = await movieAPIs.getMoviesByCatgory("hanh-dong", 1);
@@ -68,11 +67,6 @@ function Movies() {
 
   return (
     <>
-      {/* <Slide /> */}
-      <div className="container my-[46px] 2xl:mt-[100px] 2xl:!pl-[256px] 2xl:!pr-[256px] relative">
-        {/* <SwiperCoverflow listmovie={moviesbyyear} loading={loading} /> */}
-      </div>
-
       <div className="container relative z-5">
         <div className="flex flex-col gap-[50px]">
           <ListMovieSlider
