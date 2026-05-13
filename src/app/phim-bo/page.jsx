@@ -57,10 +57,14 @@ function Phimbo() {
 
   return (
     <div className="container mx-auto px-4 py-10">
-      <h2 className="text-2xl font-bold mb-6 uppercase border-l-4 border-red-500 pl-3">
+      <h4 className="text-xl font-bold mb-6 uppercase border-l-4 border-red-500 pl-3">
         Phim Bộ
-      </h2>
-
+      </h4>
+      {/* Bộ lọc */}
+      <div className="flex flex-col items-start gap-4 mb-8">
+        <h5>Bộ lọc</h5>
+        <p className="p-4 bg-red-400/50 w-full rounded-sm">Tính năng đang được cập nhật</p>
+      </div>
       {/* Grid 8 cột trên màn hình cực lớn (xl), 4 cột trên tablet */}
       <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8 gap-4">
         {loading
