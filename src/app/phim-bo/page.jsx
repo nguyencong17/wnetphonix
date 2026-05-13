@@ -1,6 +1,7 @@
 "use client";
 import movieAPIs from "@/apis/movieAPIs";
 import { Card } from "@/components/Card/Card";
+import { Skeleton } from "@/components/ui/skeleton";
 import { useEffect, useMemo, useState } from "react";
 
 function Phimbo() {
@@ -60,41 +61,37 @@ function Phimbo() {
         Phim Bộ
       </h2>
 
-      {loading && displayMovies.length === 0 ? (
-        <div className="text-center py-20 text-zinc-500">
-          Đang tải dữ liệu...
-        </div>
-      ) : (
-        <>
-          {/* Grid 8 cột trên màn hình cực lớn (xl), 4 cột trên tablet */}
-          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8 gap-4">
-            {displayMovies.map((movie, index) => (
+      {/* Grid 8 cột trên màn hình cực lớn (xl), 4 cột trên tablet */}
+      <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8 gap-4">
+        {loading
+          ? Array.from({ length: ITEMS_PER_PAGE }).map((_, index) => (
+              <Skeleton key={index} className="aspect-[3/4] rounded-xl" />
+            ))
+          : displayMovies.map((movie, index) => (
               <Card key={movie.slug || index} movie={movie} />
             ))}
-          </div>
+      </div>
 
-          {/* Phân trang */}
-          <div className="flex justify-center mt-12 gap-4">
-            <button
-              disabled={currentPage === 1 || loading}
-              onClick={() => setCurrentPage((p) => p - 1)}
-              className="px-6 py-2 bg-zinc-800 rounded-md hover:bg-zinc-700 disabled:opacity-30"
-            >
-              Trước
-            </button>
-            <span className="flex items-center font-bold text-red-500">
-              Trang {currentPage}
-            </span>
-            <button
-              disabled={loading}
-              onClick={() => setCurrentPage((p) => p + 1)}
-              className="px-6 py-2 bg-zinc-800 rounded-md hover:bg-zinc-700 disabled:opacity-30"
-            >
-              Sau
-            </button>
-          </div>
-        </>
-      )}
+      {/* Phân trang */}
+      <div className="flex justify-center mt-12 gap-4">
+        <button
+          disabled={currentPage === 1 || loading}
+          onClick={() => setCurrentPage((p) => p - 1)}
+          className="px-6 py-2 bg-zinc-800 rounded-md hover:bg-zinc-700 disabled:opacity-30"
+        >
+          Trước
+        </button>
+        <span className="flex items-center font-bold text-red-500">
+          Trang {currentPage}
+        </span>
+        <button
+          disabled={loading}
+          onClick={() => setCurrentPage((p) => p + 1)}
+          className="px-6 py-2 bg-zinc-800 rounded-md hover:bg-zinc-700 disabled:opacity-30"
+        >
+          Sau
+        </button>
+      </div>
     </div>
   );
 }
