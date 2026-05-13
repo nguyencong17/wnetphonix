@@ -1,6 +1,5 @@
 "use client";
 import movieAPIs from "@/apis/movieAPIs";
-import SwiperCoverflow from "@/components/CoverflowEffect/CoverflowEffect";
 import Cta from "@/components/Cta/page";
 import { ListMovieSlider } from "@/components/ListMovie/ListMovie";
 import { getUpdatingList } from "@/store/actions/actions";
@@ -71,7 +70,7 @@ function Movies() {
     <>
       {/* <Slide /> */}
       <div className="container my-[46px] 2xl:mt-[100px] 2xl:!pl-[256px] 2xl:!pr-[256px] relative">
-        <SwiperCoverflow listmovie={moviesbyyear} loading={loading} />
+        {/* <SwiperCoverflow listmovie={moviesbyyear} loading={loading} /> */}
       </div>
 
       <div className="container relative z-5">
